@@ -1,0 +1,20 @@
+/* Header */
+.festival-header {
+  background: rgb(9, 19, 83);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.festival-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(255, 248, 248, 0.6);
+}
+
+/* Footer */
+.festival-footer {
+  background: rgba(53, 124, 210, 0.7);
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
+}
+
