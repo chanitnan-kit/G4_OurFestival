@@ -18,3 +18,16 @@
   box-shadow: 0 -4px 10px rgba(0,0,0,0.4);
 }
 
+
+/* Main content readability */
+main {
+  color: #fff; /* improve contrast on dark bg */
+}
+
+/* Keep header/footer above decorative layers */
+.festival-header,
+.festival-footer,
+main {
+  position: relative;
+  z-index: 1;
+}
