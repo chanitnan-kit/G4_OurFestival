@@ -1,4 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const assetBase = (() => {
+    const currentScript =
+      document.currentScript ||
+      Array.from(document.querySelectorAll("script")).find((script) =>
+        (script.getAttribute("src") || "").includes("layout-loader.js")
+      );
+
+    if (!currentScript) {
+      return window.location.href;
+    }
+
+    const scriptUrl = new URL(currentScript.getAttribute("src"), window.location.href);
+    return new URL("..", scriptUrl).href;
+  })();
+
+  const resolveAssetPath = (relativePath) => new URL(relativePath, assetBase).href;
+  const fixRelativeUrls = (root) => {
+    const isRelative = (v) => v && !/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(v) && !v.startsWith('/') && !v.startsWith('#');
+    root.querySelectorAll('a[href], img[src]').forEach((el) => {
+      const attr = el.tagName === 'A' ? 'href' : 'src';
+      const val = el.getAttribute(attr);
+      if (isRelative(val)) {
+        el.setAttribute(attr, resolveAssetPath(val));
+      }
+    });
+  };
+
   const ensureProfileDropdown = (rootElement, next) => {
     const initialize = () => {
       if (typeof window.initProfileDropdowns === "function") {
@@ -17,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let script = document.querySelector('script[data-profile-script="true"]');
     if (!script) {
       script = document.createElement("script");
-      script.src = "js/UserProfile.js";
+      script.src = resolveAssetPath("js/UserProfile.js");
       script.dataset.profileScript = "true";
       script.addEventListener(
         "load",
@@ -53,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let script = document.querySelector('script[data-auth-script="true"]');
     if (!script) {
       script = document.createElement("script");
-      script.src = "js/auth.js";
+      script.src = resolveAssetPath("js/auth.js");
       script.dataset.authScript = "true";
       script.addEventListener(
         "load",
@@ -95,9 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   };
 
-  loadFragment("#header-placeholder", "component/header.html", (container) =>
-    ensureAuth(container, () => ensureProfileDropdown(container))
+  loadFragment(
+    "#header-placeholder",
+    resolveAssetPath("component/header.html"),
+    (container) => { ensureAuth(container, () => ensureProfileDropdown(container)); fixRelativeUrls(container); }
   );
-  loadFragment("#fireworks-placeholder", "component/fireworks.html");
-  loadFragment("#footer-placeholder", "component/footer.html");
+  loadFragment("#fireworks-placeholder", resolveAssetPath("component/fireworks.html"));
+  loadFragment("#footer-placeholder", resolveAssetPath("component/footer.html"));
 });
+
+
