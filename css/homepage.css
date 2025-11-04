@@ -1,9 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(0, #130d5e, #000000);
-  overflow: hidden; /* กัน scrollbar โผล่ */
+  overflow-x: hidden; /* allow vertical scroll */
+  overflow-y: auto;
   color: white;
 }
 
