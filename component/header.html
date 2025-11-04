@@ -15,12 +15,32 @@
 
       <div class="header-cta d-flex align-items-center justify-content-end gap-2 flex-shrink-0">
         <a href="#" class="cart-icon-link position-relative" aria-label="View cart">
-          <img src="resources/Cart.png" alt="Cart" class="cart-icon">
+          <img src="resources/CartIcon.png" alt="Cart" class="cart-icon">
           <span class="cart-count badge rounded-pill">0</span>
         </a>
-        <a href="#" class="profile-avatar-link" aria-label="Profile">
-          <img src="resources/Userprofile.png" alt="Profile" class="profile-avatar">
-        </a>
+        <div class="dropdown profile-dropdown">
+          <a href="#" class="profile-avatar-link dropdown-toggle" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="resources/UserIcon.png" alt="Profile" class="profile-avatar">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <li class="profile-summary d-flex align-items-center gap-2 px-3 py-2">
+              <img src="resources/UserIcon.png" alt="Profile" class="profile-summary-avatar">
+              <div class="profile-summary-text text-white fw-semibold">
+                <span class="profile-summary-colon">:</span>
+                <span class="profile-summary-username" data-profile-name>Guest</span>
+              </div>
+            </li>
+            <li><hr class="dropdown-divider my-2"></li>
+            <li><a class="dropdown-item" href="#" data-requires-auth="true" data-action="profile">My Profile</a></li>
+            <li><a class="dropdown-item" href="#" data-requires-auth="true" data-action="history">Purchase History</a></li>
+            <li><a class="dropdown-item" href="feedback.html" data-requires-auth="true" data-action="feedback">Feedback</a></li>
+            <li><hr class="dropdown-divider my-2"></li>
+            <li data-auth-show="logged-out"><a class="dropdown-item" href="registration.html">Login</a></li>
+            <li class="d-none" data-auth-show="logged-in">
+              <button type="button" class="dropdown-item text-danger" data-action="logout" data-requires-auth="true">Sign out</button>
+            </li>
+          </ul>
+        </div>
       </div>
 
     </div>

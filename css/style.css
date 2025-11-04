@@ -151,6 +151,74 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
+.profile-dropdown .dropdown-toggle::after{
+  content: "" !important;
+  display: none !important;
+  margin: 0 !important;
+}
+
+.profile-dropdown .dropdown-menu{
+  position: fixed;
+  inset: auto 1rem auto auto;
+  background: #101828;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.6rem;
+  padding: 0.25rem 0;
+  min-width: 8.5rem;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.32);
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  z-index: 1100;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.profile-dropdown .dropdown-menu.show{
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.profile-dropdown .dropdown-item{
+  color: rgba(255,255,255,0.85);
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+}
+
+.profile-dropdown .profile-summary{
+  min-width: 0;
+}
+
+.profile-dropdown .profile-summary-avatar{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-dropdown .profile-summary-text{
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.profile-dropdown .profile-summary-username{
+  color: #fff;
+}
+
+.profile-dropdown .profile-summary-colon{
+  color: rgba(255,255,255,0.65);
+}
+
+.profile-dropdown .dropdown-item:hover,
+.profile-dropdown .dropdown-item:focus{
+  color:#fff;
+  background: rgba(255,255,255,0.12);
+}
+
+.profile-dropdown .dropdown-divider{
+  border-color: rgba(255,255,255,0.12);
+}
+
 .profile-avatar{
   width: 24px;
   height: 24px;
