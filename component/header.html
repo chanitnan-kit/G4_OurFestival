@@ -34,8 +34,12 @@
             <li><a class="dropdown-item" href="#" data-requires-auth="true" data-action="profile">My Profile</a></li>
             <li><a class="dropdown-item" href="#" data-requires-auth="true" data-action="history">Purchase History</a></li>
             <li><a class="dropdown-item" href="feedback.html" data-requires-auth="true" data-action="feedback">Feedback</a></li>
+            <li class="d-none" data-auth-role="admin"><hr class="dropdown-divider my-2"></li>
+            <li class="d-none" data-auth-role="admin"><h6 class="dropdown-header">Admin</h6></li>
+            <li class="d-none" data-auth-role="admin"><a class="dropdown-item" href="registration-summary.html">Registration Summary</a></li>
+            <li class="d-none" data-auth-role="admin"><a class="dropdown-item" href="feedback-summary.html">Feedback Summary</a></li>
             <li><hr class="dropdown-divider my-2"></li>
-            <li data-auth-show="logged-out"><a class="dropdown-item" href="registration.html">Login</a></li>
+            <li data-auth-show="logged-out"><a class="dropdown-item" href="login.html">Login</a></li>
             <li class="d-none" data-auth-show="logged-in">
               <button type="button" class="dropdown-item text-danger" data-action="logout" data-requires-auth="true">Sign out</button>
             </li>

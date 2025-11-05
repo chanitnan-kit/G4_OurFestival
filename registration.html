@@ -14,34 +14,40 @@
 
     <main class="container my-5">
         <fieldset>
-            <form>
+            <form id="registration-form">
                 <h1>Register</h1>
-                <label for="username">User Name:</label><br>
+                <label for="name">Full Name:</label><br>
                 <input type="text" id="name" name="name" required><br><br>
 
-                <label for="gender">Gender:</label><br>
-                <label><input type="radio" id="gender" name="gender">Male</label><br>
-                <label><input type="radio" id="gender" name="gender">female</label><br>
-                <label><input type="radio" id="gender" name="gender">Other</label><br>
-                <label><input type="radio" id="gender" name="gender">Prefer not to say</label><br><br>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+
+                <label>Gender:</label><br>
+                <label><input type="radio" name="gender" value="Male" required> Male</label><br>
+                <label><input type="radio" name="gender" value="Female"> Female</label><br>
+                <label><input type="radio" name="gender" value="Other"> Other</label><br>
+                <label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label><br><br>
 
                 <div class="date">
                     <div class="day">
-                        <label>Day</label>
-                        <input type="text" maxlength="2" placeholder="xx">
+                        <label for="dob-day">Day</label>
+                        <input type="text" id="dob-day" maxlength="2" placeholder="dd" required>
                     </div>
                     <div class="month">
-                        <label>Month</label>
-                        <input type="text" maxlength="2" placeholder="xx">
+                        <label for="dob-month">Month</label>
+                        <input type="text" id="dob-month" maxlength="2" placeholder="mm" required>
                     </div>
                     <div class="years">
-                        <label>Year</label>
-                        <input type="text" maxlength="4" placeholder="xxxx">
+                        <label for="dob-year">Year</label>
+                        <input type="text" id="dob-year" maxlength="4" placeholder="yyyy" required>
                     </div>
                 </div>
 
                 <label for="phone_num">Phone Number:</label><br>
                 <input type="text" id="phone_num" name="phone_num" required><br><br>
+
+                <label for="address">Address:</label><br>
+                <textarea id="address" name="address" rows="3" required></textarea><br><br>
 
                 <label for="email">Email:</label><br>
                 <input type="email" id="email" name="email" required><br><br>
@@ -52,6 +58,8 @@
                 <label for="confirm-password">Confirm Password:</label><br>
                 <input type="password" id="confirm-password" name="confirm-password" required><br><br>
 
+                
+
                 <input type="submit" value="Register">
             </form>
         </fieldset>
@@ -59,5 +67,6 @@
 
     <div id="footer-placeholder"></div>
     <script src="js/layout-loader.js"></script>
+    <script src="js/registration.js"></script>
 </body>
 </html>

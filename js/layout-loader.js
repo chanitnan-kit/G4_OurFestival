@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   const resolveAssetPath = (relativePath) => new URL(relativePath, assetBase).href;
+  const isAdminSummaryPage = () => {
+    const p = (window.location.pathname || "").toLowerCase();
+    return p.endsWith("/registration-summary.html") || p.endsWith("registration-summary.html") ||
+           p.endsWith("/feedback-summary.html") || p.endsWith("feedback-summary.html");
+  };
   const fixRelativeUrls = (root) => {
     const isRelative = (v) => v && !/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(v) && !v.startsWith('/') && !v.startsWith('#');
     root.querySelectorAll('a[href], img[src]').forEach((el) => {
@@ -98,6 +103,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const ensureAdminLoader = () => {
+    if (!isAdminSummaryPage()) return;
+    let script = document.querySelector('script[data-admin-script="true"]');
+    if (!script) {
+      script = document.createElement("script");
+      script.src = resolveAssetPath("js/admin-loader.js");
+      script.dataset.adminScript = "true";
+      script.addEventListener("load", () => {
+        script.dataset.loaded = "true";
+      }, { once: true });
+      document.body.appendChild(script);
+    }
+  };
+
   const loadFragment = (selector, filePath, callback) => {
     const container = document.querySelector(selector);
     if (!container) {
@@ -129,6 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   loadFragment("#fireworks-placeholder", resolveAssetPath("component/fireworks.html"));
   loadFragment("#footer-placeholder", resolveAssetPath("component/footer.html"));
+  // Load admin page logic only on admin summary pages
+  ensureAdminLoader();
 });
-
-
