@@ -1,0 +1,74 @@
+/* ===== Logo ===== */
+.festival-logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ===== Title ===== */
+.festival-title {
+  color: #c0392b;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* ===== Subtitle ===== */
+.festival-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Onsite & Online Section ===== */
+.festival-section {
+  margin: 40px auto;
+}
+
+.festival-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.festival-box div {
+  flex: 1;
+  min-width: 280px;
+  padding: 20px;
+}
+
+.festival-box .onsite {
+  border-right: 2px solid #ccc;
+}
+
+.festival-box .onsite h3 {
+  color: #c0392b;
+}
+
+.festival-box .online h3 {
+  color: #27ae60;
+}
+
+.festival-box a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== Description ===== */
+.description-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.description-box p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #fff;
+  margin: 0;
+}
