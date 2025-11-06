@@ -1,0 +1,75 @@
+/* Feedback page styles extracted from feedback.html */
+.heading h1 {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.feedbackform {
+  background-color: rgb(235, 233, 233);
+  min-height: 70vh;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: black;
+}
+
+.emoji-rating-box {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.emoji-rating-box input[type="radio"] {
+  display: none;
+}
+
+.rating-box {
+  width: 100px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.rating-box i {
+  font-size: 2.5rem;
+  color: #aaaaaa;
+  transition: color 0.2s ease;
+}
+
+.rating-box span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #888888;
+  margin-top: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.rating-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.emoji-rating-box input[type="radio"]:checked + .rating-box {
+  border-color: #4a4a9c;
+  background-color: #f7f7ff;
+  box-shadow: 0 4px 15px rgba(74, 74, 156, 0.2);
+}
+
+.emoji-rating-box input[type="radio"]:checked + .rating-box i { color: #4a4a9c; }
+.emoji-rating-box input[type="radio"]:checked + .rating-box span { color: #333333; font-weight: 600; }
+
+.modal-body { color: #212529; }
+
