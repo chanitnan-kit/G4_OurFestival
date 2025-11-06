@@ -1,18 +1,26 @@
-API Structure (scaffold only, no code)
+API Structure
 
-- config/
-  - Configuration placeholders (environment, database settings)
+- index.php
+  - Front controller. Receives `/api/*` via rewrite and routes using an internal map to controllers (no per-file routes).
+  - Loads `bootstrap.php` for error handling, autoloading and helpers.
+- bootstrap.php
+  - Global setup (timezone, debug, JSON exception handler, autoloader for `App\*`).
+  - Loads shared libs: `response.php`, `db.php`, `auth.php`, `session.php`.
+  - Provides helpers `request_method()` and `request_json()`.
+- app/Controllers/
+  - Domain logic grouped by controller classes.
+  - `AuthController.php` (login, register, me, logout)
+  - `FeedbackController.php` (create, list)
+  - `SummaryController.php` (registrations, feedback)
 - lib/
-  - Shared utilities (DB connection, session, auth middleware, validation, response)
-- routes/
-  - auth/: register, login, logout, me
-  - feedback/: create, list
-  - summary/: registrations, feedback (admin-only)
-- sql/
-  - MySQL schema and seed placeholders
+  - `response.php`: JSON helpers (`json_ok`, `json_error`).
+  - `db.php`: PDO connection factory using `config/database.php`.
+  - `auth.php`: session-based auth helpers and guards.
+  - `session.php`: secure session bootstrapping.
+- config/
+  - `database.php`: DB settings with environment variable overrides.
 
-Implementation notes
-- Use PHP + MySQL (PDO) with prepared statements.
-- Use PHP sessions (cookie HttpOnly, SameSite=Lax; enable secure under HTTPS).
-- Enforce role checks on server for admin-only endpoints.
-
+Notes
+- Endpoints remain backward-compatible: URLs like `/api/auth/me.php` still work via the internal router.
+- Prefer using controllers for shared logic and tests.
+- Use PHP sessions (HttpOnly, SameSite=Lax; secure when HTTPS) and PDO prepared statements.

@@ -23,6 +23,21 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
+-- Feedback table
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT UNSIGNED NULL,
+  `rating` TINYINT UNSIGNED NOT NULL,
+  `comment` TEXT NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_feedback_user_id` (`user_id`),
+  CONSTRAINT `fk_feedback_user`
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+    ON UPDATE CASCADE ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
 -- ============================= DEV SEED START =============================
 -- For development only.
 -- Seed additional admins using student IDs as usernames (password: 'password')
