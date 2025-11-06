@@ -1,24 +1,21 @@
-/* ===== Logo ===== */
+
 .festival-logo img {
   display: block;
   margin: 0 auto;
 }
 
-/* ===== Title ===== */
 .festival-title {
   color: #c0392b;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
 
-/* ===== Subtitle ===== */
 .festival-subtitle {
   font-size: 1.2rem;
   font-weight: 500;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* ===== Onsite & Online Section ===== */
 .festival-section {
   margin: 40px auto;
 }
