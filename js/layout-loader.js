@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Ensure Bootstrap JS (bundle) is loaded once for components like Modal/Dropdown
+  const ensureBootstrap = (() => {
+    let loading = false;
+    return () => {
+      if (window.bootstrap) return; // already available
+      if (loading) return;
+      loading = true;
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
+      script.async = true;
+      script.addEventListener("load", () => {
+        // Signal to any listeners that Bootstrap APIs are ready
+        try { window.dispatchEvent(new CustomEvent("bootstrap:ready")); } catch (_) {}
+      }, { once: true });
+      document.head.appendChild(script);
+    };
+  })();
+
+  ensureBootstrap();
   const assetBase = (() => {
     const currentScript =
       document.currentScript ||
