@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Ensure Bootstrap JS (bundle) is loaded once for components like Modal/Dropdown
+  // Optionally load Bootstrap bundle only when a modal is present.
   const ensureBootstrap = (() => {
     let loading = false;
     return () => {
@@ -9,15 +9,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
       script.async = true;
-      script.addEventListener("load", () => {
-        // Signal to any listeners that Bootstrap APIs are ready
-        try { window.dispatchEvent(new CustomEvent("bootstrap:ready")); } catch (_) {}
-      }, { once: true });
+      script.addEventListener(
+        "load",
+        () => {
+          // Signal to any listeners that Bootstrap APIs are ready
+          try { window.dispatchEvent(new CustomEvent("bootstrap:ready")); } catch (_) {}
+        },
+        { once: true }
+      );
       document.head.appendChild(script);
     };
   })();
 
-  ensureBootstrap();
+  const maybeLoadBootstrap = () => {
+    // Avoid loading Bootstrap just for the profile dropdown to prevent overlap.
+    // Load only if the page uses Bootstrap Modals.
+    if (document.querySelector('.modal, [data-bs-toggle="modal"], [data-bs-dismiss="modal"]')) {
+      ensureBootstrap();
+    }
+  };
   const assetBase = (() => {
     const currentScript =
       document.currentScript ||
@@ -163,10 +173,18 @@ document.addEventListener("DOMContentLoaded", () => {
   loadFragment(
     "#header-placeholder",
     resolveAssetPath("component/header.html"),
-    (container) => { ensureAuth(container, () => ensureProfileDropdown(container)); fixRelativeUrls(container); }
+    (container) => {
+      // Initialize profile dropdowns immediately, independent of auth load.
+      // Auth/UI updates can complete afterwards without blocking interactivity.
+      ensureProfileDropdown(container);
+      ensureAuth(container);
+      fixRelativeUrls(container);
+    }
   );
   loadFragment("#fireworks-placeholder", resolveAssetPath("component/fireworks.html"));
   loadFragment("#footer-placeholder", resolveAssetPath("component/footer.html"));
   // Load admin page logic only on admin summary pages
   ensureAdminLoader();
+  // Conditionally load Bootstrap if the page contains modal elements.
+  maybeLoadBootstrap();
 });

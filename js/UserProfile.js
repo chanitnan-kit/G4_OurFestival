@@ -68,12 +68,18 @@
     const toggle = dropdown.querySelector(TOGGLE_SELECTOR);
     const menu = dropdown.querySelector(MENU_SELECTOR);
     if (!toggle || !menu) return;
+    // Prevent Bootstrap's data API from binding dropdown behavior
+    if (toggle.hasAttribute('data-bs-toggle')) {
+      toggle.removeAttribute('data-bs-toggle');
+    }
 
     const open = () => {
       closeAllDropdowns(dropdown);
       dropdown.classList.add(OPEN_CLASS);
       menu.classList.add(OPEN_CLASS);
       toggle.setAttribute("aria-expanded", "true");
+      // Ensure visibility even if Bootstrap CSS isn't present
+      menu.style.display = "block";
 
        const rect = toggle.getBoundingClientRect();
       const gutter = 12;
@@ -92,10 +98,17 @@
 
     const close = () => {
       closeDropdown(dropdown);
+      if (menu) {
+        menu.style.removeProperty("display");
+      }
     };
 
     toggle.addEventListener("click", (event) => {
       event.preventDefault();
+      // Stop Bootstrap or any other handlers from also toggling
+      if (typeof event.stopImmediatePropagation === 'function') {
+        event.stopImmediatePropagation();
+      }
       event.stopPropagation();
 
       if (menu.classList.contains(OPEN_CLASS)) {
@@ -106,6 +119,8 @@
     });
 
     menu.addEventListener("click", (event) => {
+      // Prevent outer handlers from interfering while interacting inside the menu
+      event.stopPropagation();
       const logoutButton = event.target.closest(LOGOUT_SELECTOR);
       if (logoutButton) {
         event.preventDefault();
