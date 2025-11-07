@@ -109,7 +109,7 @@
     // 1) Check auth/role via API
     let me;
     try {
-      me = await fetchJSON('api/auth/me.php');
+      me = await fetchJSON('api/index.php?r=auth/me');
     } catch (e) {
       renderMessage(main, 'warning', 'API unavailable.', 'Cannot reach /api/auth/me. Set up backend first.');
       return;
@@ -124,7 +124,7 @@
     // 2) Fetch summary according to page
     try {
       if (kind === 'registration') {
-        const data = await fetchJSON('api/summary/registrations.php');
+        const data = await fetchJSON('api/index.php?r=summary/registrations');
         const title = el('div', 'd-flex justify-content-between align-items-center mb-4');
         const h = el('h3', 'mb-0', 'Registration Summary');
         const sub = el('div', 'text-muted', `Last updated: ${formatDateTime(new Date().toISOString())}`);
@@ -172,7 +172,7 @@
           ));
         }
       } else if (kind === 'feedback') {
-        const data = await fetchJSON('api/summary/feedback.php');
+        const data = await fetchJSON('api/index.php?r=summary/feedback');
         const title = el('div', 'd-flex justify-content-between align-items-center mb-4');
         const h = el('h3', 'mb-0', 'Feedback Summary');
         const sub = el('div', 'text-muted', `Last updated: ${formatDateTime(new Date().toISOString())}`);

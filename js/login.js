@@ -21,7 +21,7 @@
       return;
     }
     try {
-      const res = await fetch('api/auth/login.php', {
+      const res = await fetch('api/index.php?r=auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         credentials: 'include',

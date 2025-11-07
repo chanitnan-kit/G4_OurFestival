@@ -79,7 +79,7 @@
     }
 
     try {
-      const res = await fetch('api/auth/register.php', {
+      const res = await fetch('api/index.php?r=auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         credentials: 'include',

@@ -57,7 +57,7 @@
 
   const logoutUser = async () => {
     try {
-      await fetch('api/auth/logout.php', { method: 'POST', credentials: 'include' });
+      await fetch('api/index.php?r=auth/logout', { method: 'POST', credentials: 'include' });
     } catch (_) { /* ignore network errors */ }
     localStorage.setItem(REGISTERED_KEY, "false");
     localStorage.removeItem(NAME_KEY);
@@ -77,7 +77,7 @@
 
   const syncAuthFromServer = async () => {
     try {
-      const res = await fetch('api/auth/me.php', { credentials: 'include' });
+      const res = await fetch('api/index.php?r=auth/me', { credentials: 'include' });
       if (!res.ok) throw new Error('me failed');
       const data = await res.json();
       if (data && data.authenticated && data.user) {
