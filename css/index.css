@@ -53,9 +53,8 @@
   font-weight: 600;
 }
 
-/* ===== Description ===== */
 .description-box {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
   border: 2px solid #fff;
