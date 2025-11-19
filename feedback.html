@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,21 +11,24 @@
     <link rel="stylesheet" href="css/directory.css">
     <link rel="stylesheet" href="css/feedback.css">
 </head>
+
 <body>
     <div id="fireworks-placeholder"></div>
     <div id="header-placeholder"></div>
-    
+
     <main class="container my-5">
-        <div class="heading"><h1>We'd love your feedback!</h1></div>
-        
+        <div class="heading">
+            <h1>We'd love your feedback!</h1>
+        </div>
+
         <div class="feedbackform">
             <form id="feedbackForm" class="needs-validation" novalidate>
-                
+
                 <div class="mb-4 text-center">
                     <label class="form-label d-block mb-3">What do you think of the experience?</label>
-                    
+
                     <div class="emoji-rating-box">
-                        
+
                         <div>
                             <input type="radio" id="rating1" name="rating" value="1" required>
                             <label class="rating-box" for="rating1">
@@ -32,7 +36,7 @@
                                 <span>Terrible</span>
                             </label>
                         </div>
-                        
+
                         <div>
                             <input type="radio" id="rating2" name="rating" value="2" required>
                             <label class="rating-box" for="rating2">
@@ -73,12 +77,39 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="interest" class="form-label">Which booth did you like most? <span
+                            class="text-danger">*</span></label>
+                    <select id="interest" name="interest" class="form-select" required>
+                        <option value="">— Select —</option>
+                        <option value="food">Candy & Drinks Booth 1</option>
+                        <option value="fashion">Candy & Drinks Booth 2</option>
+                        <option value="games">Home Decorations Booth 3</option>
+                        <option value="music">Home Decorations Booth 4</option>
+                    </select>
+                    <div class="invalid-feedback">Please choose one Booth.</div>
+                </div>
+
+
+
+
+
+                <div class="mb-3">
                     <label for="feedbackText" class="form-label">Your Feedback</label>
-                    <textarea class="form-control" id="feedbackText" rows="5" placeholder="Tell us what you think..." required></textarea>
+                    <textarea class="form-control" id="feedbackText" rows="5" placeholder="Tell us what you think..."
+                        required></textarea>
                     <div class="invalid-feedback">
                         Please provide your feedback.
                     </div>
                 </div>
+
+                <div class="form-check my-3">
+                    <input class="form-check-input" type="checkbox" id="consent" required>
+                    <label class="form-check-label" for="consent">
+                        I allow my feedback to be used for the event improvement.
+                    </label>
+                    <div class="invalid-feedback">You must agree before submitting.</div>
+                </div>
+
 
                 <div class="text-center mt-4">
                     <button class="btn btn-primary btn-lg" type="submit">Submit Feedback</button>
@@ -93,7 +124,8 @@
             <div class="modal-content">
                 <div class="modal-header bg-success text-white">
                     <h5 class="modal-title" id="successModalLabel">Success!</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     Thank you for your feedback! We appreciate you taking the time.
@@ -105,8 +137,12 @@
         </div>
     </div>
 
+
+
     <div id="footer-placeholder"></div>
     <script src="js/layout-loader.js"></script>
     <script src="./js/feedback.js"></script>
+
 </body>
+
 </html>
