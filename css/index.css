@@ -1,4 +1,13 @@
-
+.festival-logo {
+  width: 100%;
+  height: 100%;
+  background-image: url('../resources/Banner.png');
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
 .festival-logo img {
   display: block;
   margin: 0 auto;
