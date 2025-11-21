@@ -1,22 +1,25 @@
 /* Feedback page styles extracted from feedback.html */
+
 .heading h1 {
-  color: #ffffff;
+  color: rgb(248, 211, 4);
   display: flex;
   justify-content: center;
 }
 
 .feedbackform {
-  background-color: rgb(235, 233, 233);
+  background-color: rgb(245, 245, 245);
   min-height: 70vh;
   border-radius: 2rem;
   margin-top: 1rem;
   padding: 2.5rem 3rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid #E57373;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+                0 0 20px rgba(255, 215, 0, 0.3);
 }
 
 .form-label {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   color: black;
 }
 
@@ -116,3 +119,59 @@
   margin-top: 1.5rem !important;
 }
 
+* {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+}
+
+.alt-text {
+  color: black;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+strong {
+  color: rgb(221, 188, 0);
+}
+
+.btn-primary {
+    background-color: #C62828;
+    border-color: #C62828;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #FF5252;
+    border-color: #FF5252;
+    transform: translateY(-2px);
+}
+
+body {
+  background-color: #0A1931;
+  background-image: url();
+}
+
+.feedbackform {
+    position: relative;
+    overflow: hidden;
+}
+
+.snowman-decoration {
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    height: 100px;
+    z-index: 1;
+    rotate: 2deg;
+    
+}
+
+.feedbackform .text-center {
+    position: relative;
+    z-index: 2;
+}
