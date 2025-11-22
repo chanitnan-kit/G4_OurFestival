@@ -71,3 +71,23 @@
 select:focus { 
     outline:none; 
     box-shadow:0 0 0 2px #ffffff33; }
+.banner-card {
+    border:0;
+    border-radius:20px;   
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+.banner-img {
+    width:100%;
+    display:block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    height: 100%;
+}
+.product-img-eve {
+    border-radius:16px;
+    aspect-ratio: 1/1;
+    display:flex; 
+    justify-content:center; 
+    overflow:hidden;
+}
