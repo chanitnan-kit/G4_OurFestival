@@ -2,31 +2,58 @@
 
 /* Hero Section with Slider */
 .hero {
-    /* margin-top: 80px; Removed to fit in the landing page better or can be adjusted */
-    min-height: 100vh;
-    background: linear-gradient(135deg, #FF6B6B 0%, #FFAB91 50%, #7FFFD4 100%);
+    min-height: auto;
+    background: radial-gradient(120% 120% at 20% 20%, rgba(255, 105, 180, 0.25), transparent 45%),
+        radial-gradient(100% 100% at 80% 0%, rgba(102, 217, 255, 0.18), transparent 42%),
+        linear-gradient(135deg, #0c0f26 0%, #141a2f 60%, #1c1034 100%);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 48px 18px 72px;
     overflow: hidden;
     position: relative;
 }
 
 .slider-container {
-    width: 1197px; /* 1200px set as 1197px to prevent showing up some slicing lines */
-    height: 700px;
+    width: 100%;
+    max-width: 1400px;
+    width: min(100%, 1400px);
     position: relative;
     perspective: 1500px;
     transform-style: preserve-3d;
     overflow: visible;
+    background: linear-gradient(120deg, rgba(34, 41, 80, 0.92), rgba(24, 20, 48, 0.9));
+    border-radius: 30px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
 }
 
 .slider-stage {
     width: 100%;
-    height: 600px;
+    height: clamp(310px, 60vw, 490px);
+    flex: 0 0 auto;
     position: relative;
     display: flex;
     transform-style: preserve-3d;
+    border-radius: 22px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.slider-stage::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 140px;
+    background: linear-gradient(0deg, rgba(12, 15, 38, 0.9) 0%, rgba(12, 15, 38, 0.05) 100%);
+    z-index: 101;
+    pointer-events: none;
 }
 
 .slice-container {
@@ -105,20 +132,22 @@
 .slice-container:nth-child(10) .slice-cube { transition-delay: 0.36s; }
 
 .text-overlay {
-    position: absolute;
-    bottom: 100px;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: rgba(0, 0, 0, 0.5);
+    position: static;
+    width: 100%;
+    margin-top: 0;
+    background: linear-gradient(120deg, rgba(12, 15, 38, 0.9), rgba(18, 29, 60, 0.82));
+    border: 1px solid rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
+    gap: 6px;
     justify-content: center;
-    padding: 0 40px;
-    z-index: 102;
+    padding: 18px 22px;
+    border-radius: 16px;
+    z-index: auto;
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -127,28 +156,35 @@
     transform: translateY(10px);
 }
 
+.slider-caption {
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 10px;
+}
+
 .slide-title {
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    margin: 0 0 8px 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #f7f7ff;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin: 0;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
 }
 
 .slide-description {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(230, 235, 255, 0.92);
     font-size: 16px;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
 .controls {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    right: 18px;
     display: flex;
-    gap: 15px;
+    gap: 12px;
     z-index: 103;
 }
 
@@ -180,14 +216,14 @@
 
 .nav-arrow {
     position: absolute;
-    top: 300px;
+    top: 230px;
     transform: translateY(-50%);
-    width: 70px;
-    height: 70px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    background: rgba(0, 0, 0, 0.4);
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: rgba(18, 22, 46, 0.7);
     backdrop-filter: blur(10px);
-    border-radius: 50%;
+    border-radius: 18px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -195,9 +231,9 @@
     transition: all 0.2s ease;
     color: white;
     z-index: 102;
-    opacity: 0.8;
+    opacity: 0.82;
     padding: 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 .nav-arrow:before {
@@ -230,11 +266,11 @@
 }
 
 .nav-arrow.prev {
-    left: 40px;
+    left: 12px;
 }
 
 .nav-arrow.next {
-    right: 40px;
+    right: 12px;
 }
 
 .play-pause-btn {
@@ -318,32 +354,51 @@
 
 .dots {
     position: absolute;
-    top: 20px;
+    top: 22px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
+    gap: 12px;
     z-index: 103;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 .thumbnails-container {
     position: absolute;
-    bottom: 0px;
+    bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
-    z-index: 104;
+    gap: 12px;
+    z-index: 103;
+    padding: 8px 10px;
+    background: rgba(10, 13, 30, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    flex-wrap: nowrap;
+    max-width: min(94vw, 1100px);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.thumbnails-container::-webkit-scrollbar {
+    display: none;
 }
 
 .thumbnail {
-    width: 120px;
-    height: 80px;
-    border-radius: 8px;
+    width: clamp(90px, 9vw, 120px);
+    height: clamp(60px, 6vw, 78px);
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    border: 3px solid transparent;
-    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -365,9 +420,9 @@
 }
 
 .thumbnail.active {
-    border-color: white;
+    border-color: #77f4ff;
     transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 22px rgba(119, 244, 255, 0.35);
 }
 
 .thumbnail.active::after {
@@ -400,17 +455,17 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px;
-    background: rgba(0, 0, 0, 0.2);
+    height: 4px;
+    background: rgba(255, 255, 255, 0.07);
     z-index: 101;
 }
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #FF6B6B, #FFAB91, #7FFFD4);
+    background: linear-gradient(90deg, #ff7ac3, #7de1ff, #6ef7c0);
     width: 0;
     animation: none;
-    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    box-shadow: 0 0 18px rgba(126, 241, 255, 0.5);
 }
 
 .progress-bar.active {
@@ -425,4 +480,50 @@
 .progress-bar.reset {
     animation: none;
     width: 0;
+}
+
+@media (max-width: 1200px) {
+    .nav-arrow {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 12px;
+    }
+
+    .slider-container {
+        padding: 14px 12px 22px;
+        gap: 10px;
+    }
+
+    .slider-stage {
+        height: clamp(270px, 62vw, 370px);
+    }
+
+    .nav-arrow {
+        display: none;
+    }
+
+    .thumbnails-container {
+        gap: 10px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        bottom: 10px;
+        max-width: 94vw;
+        padding: 8px;
+    }
+
+    .thumbnail {
+        width: clamp(70px, 18vw, 92px);
+        height: clamp(48px, 12vw, 60px);
+        border-radius: 10px;
+    }
+
+    .dots {
+        top: 16px;
+        padding: 6px 10px;
+    }
 }

@@ -12,20 +12,21 @@ class VerticalCubeSlider {
             {
                 url: 'resources/imgForIndex/Banner0.jpg',
                 thumb: 'resources/imgForIndex/Banner0.jpg',
-                title: 'Welcome to Our Festival',
-                description: 'Experience the joy and excitement of our annual celebration.'
+                title: 'CS100 Fireworks Festival',
+                description: 'Midnight sky symphony with cascading peonies and comet tails above the riverfront.'
             },
             {
                 url: 'resources/imgForIndex/Banner1.jpg',
                 thumb: 'resources/imgForIndex/Banner1.jpg',
-                title: 'Amazing Events',
-                description: 'Join us for unforgettable performances and activities.'
+                title: 'Riverfront Light Parade',
+                description: 'Candlelit promenade, glowing floats, and holiday cocktail bars along the waterfront.'
             },
             {
                 url: 'resources/imgForIndex/Banner2.jpg',
                 thumb: 'resources/imgForIndex/Banner2.jpg',
-                title: 'Community Spirit',
-                description: 'Bringing people together through art, music, and culture.'
+                title: 'Sky Symphony Grand Finale',
+                description: 'Santa cameos, joyful choirs, and a playful finale that lights up every kid’s smile.',
+                position: 'center top'
             }
         ];
 
@@ -159,7 +160,13 @@ class VerticalCubeSlider {
     }
 
     initializeImages() {
-        this.setFaceImage(1, this.images[0].url);
+        this.setFaceImage(1, this.images[0]);
+        const titleEl = document.getElementById('slideTitle');
+        const descriptionEl = document.getElementById('slideDescription');
+        if (titleEl && descriptionEl) {
+            titleEl.textContent = this.images[0].title;
+            descriptionEl.textContent = this.images[0].description;
+        }
 
         const progressBar = document.getElementById('progressBar');
         setTimeout(() => {
@@ -167,10 +174,13 @@ class VerticalCubeSlider {
         }, 100);
     }
 
-    setFaceImage(faceNumber, imageUrl) {
+    setFaceImage(faceNumber, imageData) {
+        const imageUrl = typeof imageData === 'string' ? imageData : imageData.url;
+        const position = typeof imageData === 'object' && imageData.position ? imageData.position : 'center';
         const faceImages = document.querySelectorAll(`.slice-image[data-face="${faceNumber}"]`);
         faceImages.forEach(img => {
             img.style.backgroundImage = `url(${imageUrl})`;
+            img.style.backgroundPosition = position;
         });
     }
 
@@ -194,7 +204,7 @@ class VerticalCubeSlider {
         const nextFace = (this.currentFace + 1) % 4;
         const nextFaceNumber = nextFace + 1;
 
-        this.setFaceImage(nextFaceNumber, this.images[index].url);
+        this.setFaceImage(nextFaceNumber, this.images[index]);
 
         textOverlay.classList.add('hiding');
 
