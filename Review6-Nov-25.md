@@ -18,7 +18,7 @@
 - Database
   - `sql/schema.sql:1` — Schema + dev seed.
 - API
-  - `api/index.php:1`, `api/bootstrap.php:1`, `api/.htaccess:1`, `api/README.md:1`.
+  - `api/index.php:1`, `api/bootstrap.php:1`, `api/README.md:1`.
   - Controllers: `api/app/Controllers/AuthController.php:1`, `FeedbackController.php:1`, `SummaryController.php:1`.
   - Libs: `api/lib/response.php:1`, `api/lib/db.php:1`, `api/lib/auth.php:1`, `api/lib/session.php:1`.
   - Config: `api/config/database.php:1`, `api/config/README.md:1`.
@@ -26,7 +26,7 @@
 ## Backend
 
 - Routing
-  - Front controller map in `api/index.php:29` (supports both clean paths and `.php` suffixes).
+  - Front controller map in `api/index.php:29` (routes `r` query parameter such as `auth/login`, `summary/feedback`).
 - Controllers
   - Auth — `AuthController.php:8` login, `:41` register, `:110` me, `:117` logout.
   - Feedback — `FeedbackController.php:8` create, `:46` list (admin).
@@ -49,7 +49,7 @@
   - Pages — `index.html:1`, `directory.html:1`, `booths/*.html`, `feedback.html:1`, `login.html:1`, `registration.html:1`, `registration-summary.html:1`, `feedback-summary.html:1`.
 - JavaScript
   - Auth state/UI `js/auth.js:1`; login `js/login.js:1`; register `js/registration.js:1`.
-  - Admin summaries `js/admin-loader.js:1` (calls `/api/auth/me.php`, `/api/summary/*`).
+  - Admin summaries `js/admin-loader.js:1` (calls `api/index.php?r=auth/me`, `api/index.php?r=summary/*`).
   - Layout loader `js/layout-loader.js:1`; profile dropdown `js/UserProfile.js:1`.
   - Feedback form `js/feedback.js:1` (currently UI-only; not calling API).
 - Styles
@@ -59,7 +59,7 @@
   - Centralize Bootstrap bundle load in `js/layout-loader.js:1` to avoid per-page duplication. Remove page-level Bootstrap scripts if present (e.g., from `feedback.html:1`).
   - Include `css/homepage.css:1` on pages that render `#fireworks-placeholder`.
   - Fix encoding glitches in `directory.html:1` and `booths/*.html:1` text/comments.
-  - Wire `js/feedback.js:1` to POST `api/feedback/create.php` and show API result.
+  - Wire `js/feedback.js:1` to POST `api/index.php?r=feedback/create` and show API result.
   - Add shared `apiFetch()` wrapper; replace `alert()` with inline alerts/toasts.
   - Fill missing styles or remove unused `css/form.css:1`, `css/booth.css:1`.
 

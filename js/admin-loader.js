@@ -111,7 +111,7 @@
     try {
       me = await fetchJSON('api/index.php?r=auth/me');
     } catch (e) {
-      renderMessage(main, 'warning', 'API unavailable.', 'Cannot reach /api/auth/me. Set up backend first.');
+      renderMessage(main, 'warning', 'API unavailable.', 'Cannot reach api/index.php?r=auth/me. Set up backend first.');
       return;
     }
 
