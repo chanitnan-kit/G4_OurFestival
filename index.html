@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Festival</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts for Theme -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/slider.css">
@@ -18,7 +22,7 @@
   <section id="home" class="hero">
     <div class="container-fluid p-0">
       <div class="row justify-content-center">
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 d-flex justify-content-center">
           <div class="slider-container">
             <div class="progress-ring">
               <div class="progress-bar" id="progressBar"></div>
@@ -38,16 +42,7 @@
 
             <div class="dots" id="dots"></div>
             <div class="thumbnails-container" id="thumbnails"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center mt-2">
-        <div class="col-12 d-flex justify-content-center">
-          <div class="slider-caption">
-            <div class="text-overlay" id="textOverlay">
-              <h2 class="slide-title" id="slideTitle">CS100 Fireworks Festival</h2>
-              <p class="slide-description" id="slideDescription">Midnight sky symphony with cascading peonies and comet tails above the riverfront.</p>
-            </div>
+
           </div>
         </div>
       </div>
@@ -56,174 +51,220 @@
 
   <main class="page-shell">
     <div class="content-lane">
+      <!-- Mascot Section -->
       <div class="content-hero-grid">
         <div class="content-hero-card">
           <div class="mascot-inline">
             <img src="resources/imgForIndex/Mascot.png" alt="Snow globe mascot">
             <div class="mascot-text">
               <span class="pill"><span class="emoji">🧊</span>Albedo</span>
-              <p class="mascot-copy mascot-quote mb-0">"The cold of the winter implies solitude, but with you here, I feel nothing but warmth. Merry Christmas."</p>
+              <p class="mascot-copy mascot-quote mb-0">"The cold of the winter implies solitude, but with you here, I
+                feel nothing but warmth. Merry Christmas."</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="content-grid cards">
-      <article class="content-row">
-        <div class="content-media">
-          <img src="resources/imgForIndex/Contentpic0.jpg" alt="Origin of Christmas illustration">
-        </div>
-        <div class="content-body">
-          <span class="pill"><span class="emoji">🌟</span> 1) Origin of Christmas</span>
-          <h4 class="content-title">ต้นกำเนิดเทศกาลคริสต์มาส</h4>
-          <ul class="content-points">
-            <li>เฉลิมฉลองการประสูติของพระเยซูคริสต์ วันที่ 25 ธันวาคม</li>
-            <li>มีพื้นฐานจากเทศกาลฤดูหนาวโบราณ เช่น Winter Solstice, Saturnalia, Yule</li>
-            <li>คริสต์มาสสมัยใหม่เกิดจากการผสมผสานศาสนาคริสต์กับประเพณีพื้นบ้านยุโรป</li>
-            <li>ซานตาคลอสมีที่มาจาก Saint Nicholas ภาพลักษณ์ปัจจุบันดังจากโฆษณา Coca-Cola</li>
-            <li>ต้นคริสต์มาสเริ่มจากเยอรมนี ก่อนแพร่สู่ยุโรปและอเมริกา</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="content-row">
-        <div class="content-media">
-          <img src="resources/imgForIndex/Contentpic1.jpg" alt="Christmas traditions">
-        </div>
-        <div class="content-body">
-          <span class="pill"><span class="emoji">🎅</span> 2) Christmas Traditions</span>
-          <h4 class="content-title">กิจกรรมยอดนิยมในวันคริสต์มาส</h4>
-          <ul class="content-points">
-            <li>ตกแต่งต้นคริสต์มาส และแขวนถุงเท้า (Stockings)</li>
-            <li>แลกของขวัญ / Secret Santa กับเพื่อนหรือครอบครัว</li>
-            <li>ร้องเพลง Christmas Carol และส่งการ์ดอวยพร</li>
-            <li>เดินตลาดคริสต์มาส ชมไฟประดับทั่วเมือง</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="content-row">
-        <div class="content-media">
-          <img src="resources/imgForIndex/Contentpic2.jpg" alt="Christmas food">
-        </div>
-        <div class="content-body">
-          <span class="pill"><span class="emoji">🍽</span> 3) Christmas Food</span>
-          <h4 class="content-title">อาหารประจำเทศกาล</h4>
-          <p class="feature-desc mb-1">🍗 อาหารคาว</p>
-          <ul class="content-points">
-            <li>Roast Turkey, Roast Chicken/Beef + Gravy</li>
-            <li>Mashed Potatoes, Stuffing</li>
-          </ul>
-          <p class="feature-desc mb-1">🍞 ของหวาน</p>
-          <ul class="content-points">
-            <li>Gingerbread, Christmas Pudding, Panettone</li>
-            <li>Hot Chocolate / Eggnog</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="content-row">
-        <div class="content-media">
-          <img src="resources/imgForIndex/Contentpic3.jpg" alt="Christmas symbols">
-        </div>
-        <div class="content-body">
-          <span class="pill"><span class="emoji">🎁</span> 4) Christmas Symbols</span>
-          <h4 class="content-title">ความหมายของสัญลักษณ์ต่าง ๆ</h4>
-          <ul class="content-points">
-            <li>🎄 ต้นคริสต์มาส — ความหวัง / ความเป็นนิรันดร์</li>
-            <li>⭐ ดาว — นำทางไปยังพระกุมารเยซู</li>
-            <li>🎅 ซานตาคลอส — การให้และความเมตตา</li>
-            <li>🔔 ระฆัง — การประกาศความสุข</li>
-            <li>🍬 Candy Cane — ความดีงาม (สีขาว) + การเสียสละ (สีแดง)</li>
-            <li>🦌 Rudolph — ความเป็นผู้นำและความกล้าหาญ</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="content-row">
-        <div class="content-media">
-          <img src="resources/imgForIndex/Contentpic4.jpg" alt="Christmas around the world">
-        </div>
-        <div class="content-body">
-          <span class="pill"><span class="emoji">🎉</span> 5) Christmas Around the World</span>
-          <h4 class="content-title">แต่ละประเทศฉลองต่างกันอย่างไร</h4>
-          <ul class="content-points">
-            <li>ญี่ปุ่น: ฮิตการกิน KFC ช่วงคริสต์มาส</li>
-            <li>ฟิลิปปินส์: เทศกาลยาวที่สุดในโลก (เริ่มตั้งแต่กันยา)</li>
-            <li>เยอรมนี: ออกร้าน Christmas Market</li>
-            <li>เม็กซิโก: เทศกาล Las Posadas</li>
-            <li>อังกฤษ / สหรัฐ: บ้านประดับไฟ ต้นคริสต์มาส แลกของขวัญ</li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="content-row">
-        <div class="content-media">
-          <img src="resources/imgForIndex/Contentpic5.jpg" alt="Christmas music playlist">
-        </div>
-        <div class="content-body">
-          <span class="pill"><span class="emoji">🎼</span> 6) Christmas Music Playlist</span>
-          <h4 class="content-title">เพลงยอดนิยมทั่วโลก</h4>
-          <ul class="content-points">
-            <li>All I Want for Christmas Is You</li>
-            <li>Last Christmas</li>
-            <li>Jingle Bell Rock</li>
-            <li>Snowman</li>
-            <li>Silent Night</li>
-            <li>We Wish You a Merry Christmas</li>
-          </ul>
-        </div>
-      </article>
-      </div>
-
-      <div class="content-grid duo">
-        <article class="content-row no-media">
-          <div class="content-body">
-            <span class="pill"><span class="emoji">🤓</span> 7) Fun Facts About Christmas</span>
-            <h4 class="content-title">เกร็ดสนุก ๆ เพิ่มสีสัน</h4>
-            <ul class="content-points">
-              <li>ซานต้าชุดแดงโด่งดังจากโฆษณา Coca-Cola</li>
-              <li>"Jingle Bells" เดิมเขียนสำหรับวัน Thanksgiving</li>
-              <li>ญี่ปุ่นต้องจอง KFC ล่วงหน้าเป็นสัปดาห์</li>
-              <li>นอร์เวย์เชื่อว่าต้องซ่อนไม้กวาด เพราะแม่มดจะออกมาในคืนคริสต์มาส</li>
-              <li>ออสเตรเลียและนิวซีแลนด์ฉลองคริสต์มาสในฤดูร้อน</li>
-            </ul>
+      <!-- Detailed Featured Sections -->
+      <!-- Detailed Featured Sections -->
+      <div class="featured-sections container-fluid p-0">
+        <!-- Origin -->
+        <article class="feature-block row align-items-center g-4">
+          <div class="col-12 col-lg-6 text-center">
+            <img src="resources/imgForIndex/Contentpic0.jpg" alt="Origin of Christmas" class="img-fluid feature-img">
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="feature-block-content">
+              <span class="pill"><span class="emoji">🌟</span> Origin of Christmas</span>
+              <h3>Origin of Christmas</h3>
+              <p>
+                เทศกาลคริสต์มาส (Christmas) หรือ 'Mass of Christ' เป็นวันเฉลิมฉลองการประสูติของพระเยซูคริสต์
+                ซึ่งตรงกับวันที่ 25 ธันวาคมของทุกปี แม้คัมภีร์ไบเบิลจะไม่ได้ระบุวันที่แน่ชัด
+                แต่คริสตจักรในยุคแรกเลือกวันนี้เพื่อให้สอดคล้องกับเทศกาลฤดูหนาวของชาวโรมันและชาวยุโรปโบราณ เช่น เทศกาล
+                Saturnalia และ Yule ซึ่งเป็นการเฉลิมฉลองแสงสว่างท่ามกลางความมืดมิดของฤดูหนาว
+                ต่อมาเทศกาลนี้ได้วิวัฒนาการจนผสมผสานความเชื่อทางศาสนาเข้ากับประเพณีพื้นบ้านยุโรป
+                กลายเป็นช่วงเวลาแห่งความสุขและการให้ นอกจากนี้ ตำนานของ 'ซานตาคลอส' ก็มีรากฐานมาจากนักบุญนิโคลัส (Saint
+                Nicholas) ผู้ใจบุญ
+                ซึ่งต่อมาถูกดัดแปลงภาพลักษณ์โดยวัฒนธรรมอเมริกันจนกลายเป็นคุณลุงชุดแดงใจดีที่เราคุ้นเคยในปัจจุบัน
+              </p>
+            </div>
           </div>
         </article>
 
-        <article class="content-row no-media">
-          <div class="content-body">
-            <span class="pill"><span class="emoji">✨</span> 8) Christmas Wishes &amp; Quotes</span>
-            <h4 class="content-title">ข้อความอวยพรสำหรับเว็บ / โปสเตอร์</h4>
-            <div class="quote-box">"May your days be merry and bright."</div>
-            <div class="quote-box">"Season's greetings and warm wishes!"</div>
-            <div class="quote-box">"Wishing you peace, love, and joy this Christmas."</div>
-            <div class="quote-box">"Let the magic of Christmas fill your home with joy."</div>
-            <div class="quote-box">"May this season bring happiness to your heart."</div>
-            <div class="content-meta">
-              <span class="meta-chip">Copy &amp; paste friendly</span>
-              <span class="meta-chip">เหมาะกับโพสต์/โปสเตอร์</span>
+        <!-- Traditions -->
+        <article class="feature-block row align-items-center g-4">
+          <div class="col-12 col-lg-6 order-lg-2 text-center">
+            <img src="resources/imgForIndex/Contentpic1.jpg" alt="Christmas Traditions" class="img-fluid feature-img">
+          </div>
+          <div class="col-12 col-lg-6 order-lg-1">
+            <div class="feature-block-content">
+              <span class="pill"><span class="emoji">🎅</span> Christmas Traditions</span>
+              <h3>Christmas Traditions</h3>
+              <p>
+                ประเพณีคริสต์มาสเต็มไปด้วยสีสันและความอบอุ่น เริ่มต้นจากการตกแต่ง 'ต้นคริสต์มาส'
+                ด้วยไฟระยิบระยับและของประดับ ซึ่งเป็นสัญลักษณ์ของชีวิตนิรันดร์
+                ชาวคริสต์และผู้คนทั่วโลกนิยมแขวนถุงเท้าไว้ที่เตาผิงเพื่อรอของขวัญจากซานตาคลอส อีกหนึ่งกิจกรรมสำคัญคือการ
+                'แลกของขวัญ' เพื่อแสดงความรักและมิตรภาพ รวมถึงการรวมตัวของครอบครัวเพื่อรับประทานอาหารมื้อพิเศษ
+                (Christmas
+                Dinner) ที่มักประกอบด้วยไก่งวงอบและขนมหวาน นอกจากนี้ยังมีการร้องเพลง Christmas Carol
+                ตามบ้านเรือนและการส่งการ์ดอวยพร เพื่อส่งต่อความปรารถนาดีให้แก่กัน
+                ถือเป็นเทศกาลที่รวบรวมความสุขและความทรงจำดีๆ ไว้ด้วยกัน
+              </p>
             </div>
           </div>
         </article>
       </div>
     </div>
 
-    <div class="cta-bar mt-5">
-      <div>
-        <strong>พร้อมแชร์ความสุขคริสต์มาส.</strong><br>
-        อัปเดตสไลด์ Banner4, บันทึกเกร็ดน่ารู้ และส่งคำอวยพรให้ทุกคนรอบตัว
+    <!-- Full Width Banner (100vh) -->
+    <div class="interim-banner">
+      <h2>Check out our festival</h2>
+    </div>
+
+    <div class="content-lane">
+      <!-- Action Buttons (Moved Up) -->
+      <div class="action-buttons">
+        <a href="login.html" class="action-btn btn-primary-custom">Login / Register</a>
+        <a href="directory.html" class="action-btn btn-secondary-custom">Shopping Directory</a>
       </div>
-      <a class="btn cta-btn" href="registration.html">จองบัตร / ลงทะเบียน</a>
+
+      <!-- Remaining Content Grid (Fades In) -->
+      <div class="row g-4 fade-in-section">
+        <!-- Item 1: Food -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="content-row h-100">
+            <div class="content-media">
+              <img src="resources/imgForIndex/Contentpic2.jpg" alt="Christmas food">
+            </div>
+            <div class="content-body">
+              <span class="pill"><span class="emoji">🍗</span> 1) Christmas Food</span>
+              <h4 class="content-title">Festive Food</h4>
+              <ul class="content-points">
+                <li>Roast Turkey, Roast Chicken/Beef + Gravy</li>
+                <li>Mashed Potatoes, Stuffing</li>
+                <li>Gingerbread, Christmas Pudding</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Item 2: Symbols -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="content-row h-100">
+            <div class="content-media">
+              <img src="resources/imgForIndex/Contentpic3.jpg" alt="Christmas symbols">
+            </div>
+            <div class="content-body">
+              <span class="pill"><span class="emoji">🎁</span> 2) Christmas Symbols</span>
+              <h4 class="content-title">Symbol Meanings</h4>
+              <ul class="content-points">
+                <li>🎄 ต้นคริสต์มาส — ความหวัง</li>
+                <li>⭐ ดาว — การนำทาง</li>
+                <li>🎅 ซานตาคลอส — การให้</li>
+                <li>🔔 ระฆัง — ความสุข</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Item 3: Around the World -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="content-row h-100">
+            <div class="content-media">
+              <img src="resources/imgForIndex/Contentpic4.jpg" alt="Christmas around the world">
+            </div>
+            <div class="content-body">
+              <span class="pill"><span class="emoji">🎉</span> 3) Around the World</span>
+              <h4 class="content-title">International Celebrations</h4>
+              <ul class="content-points">
+                <li>ญี่ปุ่น: กิน KFC</li>
+                <li>ฟิลิปปินส์: ฉลองยาวนานที่สุด</li>
+                <li>เยอรมนี: Christmas Market</li>
+                <li>เม็กซิโก: Las Posadas</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Item 4: Music -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <article class="content-row h-100">
+            <div class="content-media">
+              <img src="resources/imgForIndex/Contentpic5.jpg" alt="Christmas music playlist">
+            </div>
+            <div class="content-body">
+              <span class="pill"><span class="emoji">🎼</span> 4) Music Playlist</span>
+              <h4 class="content-title">Popular Songs</h4>
+              <ul class="content-points">
+                <li>All I Want for Christmas Is You</li>
+                <li>Last Christmas</li>
+                <li>Jingle Bell Rock</li>
+                <li>Silent Night</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Item 5: Fun Facts (Wide) -->
+        <div class="col-12 col-md-6 col-lg-6">
+          <article class="content-row h-100">
+            <div class="content-body text-center">
+              <span class="pill"><span class="emoji">🤓</span> 5) Fun Facts</span>
+              <h4 class="content-title">Fun Facts</h4>
+              <ul class="content-points d-inline-block text-start">
+                <li>ซานต้าชุดแดงดังจาก Coca-Cola</li>
+                <li>Jingle Bells เดิมแต่งให้ Thanksgiving</li>
+                <li>นอร์เวย์ซ่อนไม้กวาดหนีแม่มด</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Item 6: Wishes (Wide) -->
+        <div class="col-12 col-md-6 col-lg-6">
+          <article class="content-row h-100">
+            <div class="content-body text-center">
+              <span class="pill"><span class="emoji">✨</span> 6) Wishes & Quotes</span>
+              <h4 class="content-title">Wishes</h4>
+              <div class="quote-box">"May your days be merry and bright."</div>
+              <div class="quote-box">"Wishing you peace, love, and joy."</div>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </main>
 
   <div id="footer-placeholder"></div>
-  <!-- Ensure profile dropdown script is always available locally -->
+
+  <!-- Scripts -->
   <script src="js/UserProfile.js" data-profile-script="true" defer></script>
   <script src="js/layout-loader.js"></script>
   <script src="js/slider.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Fade In Observer Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Only fade in once
+          }
+        });
+      }, observerOptions);
+
+      const fadeElements = document.querySelectorAll('.fade-in-section');
+      fadeElements.forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 
 </html>

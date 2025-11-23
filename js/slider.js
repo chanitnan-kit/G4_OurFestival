@@ -46,6 +46,9 @@ class VerticalCubeSlider {
         this.attachEventListeners();
         this.initializeImages();
         this.startAutoPlay();
+
+        // Initial depth calculation
+        this.updateSliceDepth();
     }
 
     createSlices() {
@@ -147,7 +150,10 @@ class VerticalCubeSlider {
             }
         });
 
-        window.addEventListener('resize', () => this.updateSliceWidths());
+        window.addEventListener('resize', () => {
+            this.updateSliceWidths();
+            this.updateSliceDepth();
+        });
     }
 
     updateSliceWidths() {
@@ -165,14 +171,17 @@ class VerticalCubeSlider {
         });
     }
 
+    updateSliceDepth() {
+        const container = document.querySelector('.slider-container');
+        const height = container.offsetHeight;
+        const depth = height / 2; // Radius for rotation
+
+        container.style.setProperty('--slider-depth', `${depth}px`);
+        container.style.setProperty('--slider-neg-depth', `-${depth}px`);
+    }
+
     initializeImages() {
         this.setFaceImage(1, this.images[0]);
-        const titleEl = document.getElementById('slideTitle');
-        const descriptionEl = document.getElementById('slideDescription');
-        if (titleEl && descriptionEl) {
-            titleEl.textContent = this.images[0].title;
-            descriptionEl.textContent = this.images[0].description;
-        }
 
         const progressBar = document.getElementById('progressBar');
         setTimeout(() => {
@@ -202,17 +211,12 @@ class VerticalCubeSlider {
         document.getElementById('prevArrow').disabled = true;
         document.getElementById('nextArrow').disabled = true;
 
-        const textOverlay = document.getElementById('textOverlay');
-        const titleEl = document.getElementById('slideTitle');
-        const descriptionEl = document.getElementById('slideDescription');
         const cubes = document.querySelectorAll('.slice-cube');
 
         const nextFace = (this.currentFace + 1) % 4;
         const nextFaceNumber = nextFace + 1;
 
         this.setFaceImage(nextFaceNumber, this.images[index]);
-
-        textOverlay.classList.add('hiding');
 
         cubes.forEach(cube => {
             cube.className = 'slice-cube';
@@ -221,10 +225,6 @@ class VerticalCubeSlider {
         });
 
         setTimeout(() => {
-            titleEl.textContent = this.images[index].title;
-            descriptionEl.textContent = this.images[index].description;
-            textOverlay.classList.remove('hiding');
-
             this.currentIndex = index;
             this.currentFace = nextFace;
             this.updateDots();
