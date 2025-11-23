@@ -25,8 +25,14 @@ class VerticalCubeSlider {
                 url: 'resources/imgForIndex/Banner2.jpg',
                 thumb: 'resources/imgForIndex/Banner2.jpg',
                 title: 'Sky Symphony Grand Finale',
-                description: 'Santa cameos, joyful choirs, and a playful finale that lights up every kid’s smile.',
+                description: 'Santa cameos, joyful choirs, and a playful finale that lights up every kid\'s smile.',
                 position: 'center top'
+            },
+            {
+                url: 'resources/imgForIndex/Banner4.jpg',
+                thumb: 'resources/imgForIndex/Banner4.jpg',
+                title: 'Frosty Forest Market',
+                description: 'Sparkling pine paths, artisan gifts, and cocoa stops wrapped in golden fairy lights.'
             }
         ];
 

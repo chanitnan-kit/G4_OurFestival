@@ -3,13 +3,13 @@
 /* Hero Section with Slider */
 .hero {
     min-height: auto;
-    background: radial-gradient(120% 120% at 20% 20%, rgba(255, 105, 180, 0.25), transparent 45%),
-        radial-gradient(100% 100% at 80% 0%, rgba(102, 217, 255, 0.18), transparent 42%),
-        linear-gradient(135deg, #0c0f26 0%, #141a2f 60%, #1c1034 100%);
+    background: radial-gradient(120% 120% at 18% 18%, rgba(255, 122, 195, 0.24), transparent 45%),
+        radial-gradient(100% 100% at 80% 4%, rgba(110, 247, 192, 0.18), transparent 42%),
+        linear-gradient(135deg, #0c0f26 0%, #111a2d 52%, #1c1032 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 48px 18px 72px;
+    padding: 64px 18px 96px;
     overflow: hidden;
     position: relative;
 }
@@ -22,10 +22,10 @@
     perspective: 1500px;
     transform-style: preserve-3d;
     overflow: visible;
-    background: linear-gradient(120deg, rgba(34, 41, 80, 0.92), rgba(24, 20, 48, 0.9));
+    background: linear-gradient(135deg, rgba(34, 41, 80, 0.94), rgba(38, 19, 34, 0.92));
     border-radius: 30px;
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
-    padding: 28px 28px 24px;
+    box-shadow: 0 34px 100px rgba(0, 0, 0, 0.48), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 32px 28px 26px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -34,7 +34,10 @@
 
 .slider-stage {
     width: 100%;
-    height: clamp(310px, 60vw, 490px);
+    aspect-ratio: 4 / 3;
+    height: auto;
+    min-height: 420px;
+    max-height: 720px;
     flex: 0 0 auto;
     position: relative;
     display: flex;
@@ -216,7 +219,7 @@
 
 .nav-arrow {
     position: absolute;
-    top: 230px;
+    top: 50%;
     transform: translateY(-50%);
     width: 64px;
     height: 64px;
@@ -491,16 +494,19 @@
 
 @media (max-width: 768px) {
     .hero {
-        padding: 40px 12px;
+        padding: 50px 12px 76px;
     }
 
     .slider-container {
-        padding: 14px 12px 22px;
+        padding: 18px 12px 24px;
         gap: 10px;
     }
 
     .slider-stage {
-        height: clamp(270px, 62vw, 370px);
+        aspect-ratio: 4 / 3;
+        height: auto;
+        min-height: 320px;
+        max-height: 460px;
     }
 
     .nav-arrow {
