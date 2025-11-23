@@ -1,7 +1,7 @@
 API Structure
 
 - index.php
-  - Front controller. Receives `/api/*` via rewrite and routes using an internal map to controllers (no per-file routes).
+  - Front controller. Handles requests to `/api/index.php?r=...` and routes using an internal map to controllers (no per-file routes).
   - Loads `bootstrap.php` for error handling, autoloading and helpers.
 - bootstrap.php
   - Global setup (timezone, debug, JSON exception handler, autoloader for `App\*`).
@@ -21,6 +21,5 @@ API Structure
   - `database.php`: DB settings with environment variable overrides.
 
 Notes
-- Endpoints remain backward-compatible: URLs like `/api/auth/me.php` still work via the internal router.
 - Prefer using controllers for shared logic and tests.
 - Use PHP sessions (HttpOnly, SameSite=Lax; secure when HTTPS) and PDO prepared statements.
