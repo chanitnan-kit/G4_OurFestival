@@ -7,7 +7,7 @@ function auth_current_user(): ?array {
     session_boot();
     if (empty($_SESSION['user_id'])) return null;
     $pdo = db_get_pdo();
-    $stmt = $pdo->prepare('SELECT id, name, username, email, role, created_at FROM users WHERE id = ?');
+    $stmt = $pdo->prepare('SELECT id, name, username, email, gender, birth_day, birth_month, birth_year, phone_number, address, role, created_at FROM users WHERE id = ?');
     $stmt->execute([$_SESSION['user_id']]);
     $user = $stmt->fetch();
     return $user ?: null;

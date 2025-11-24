@@ -5,6 +5,13 @@ use PDO;
 
 class AuthController
 {
+    /*
+    login (POST)
+    identifier = username หรือ email
+    password_verify
+    ถ้า ok → login session → ส่ง user
+    */
+
     public static function login(): void
     {
         $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
@@ -20,10 +27,10 @@ class AuthController
         try {
             $pdo = \db_get_pdo();
             if (strpos($identifier, '@') !== false) {
-                $stmt = $pdo->prepare('SELECT id, name, username, email, role, password_hash FROM users WHERE email = ? LIMIT 1');
+                $stmt = $pdo->prepare('SELECT id, name, username, email, gender, birth_day, birth_month, birth_year, phone_number, address, role, created_at, password_hash FROM users WHERE email = ? LIMIT 1');
                 $stmt->execute([$identifier]);
             } else {
-                $stmt = $pdo->prepare('SELECT id, name, username, email, role, password_hash FROM users WHERE username = ? LIMIT 1');
+                $stmt = $pdo->prepare('SELECT id, name, username, email, gender, birth_day, birth_month, birth_year, phone_number, address, role, created_at, password_hash FROM users WHERE username = ? LIMIT 1');
                 $stmt->execute([$identifier]);
             }
             $user = $stmt->fetch();
@@ -31,12 +38,34 @@ class AuthController
             if (!password_verify($password, $user['password_hash'])) \json_error(401, 'Invalid credentials');
 
             \auth_login_user((int)$user['id']);
-            $out = ['id' => (int)$user['id'], 'name' => $user['name'], 'username' => $user['username'], 'email' => $user['email'], 'role' => $user['role']];
+            $out = [
+                'id' => (int)$user['id'],
+                'name' => $user['name'],
+                'username' => $user['username'],
+                'email' => $user['email'],
+                'gender' => $user['gender'],
+                'birth_day' => isset($user['birth_day']) ? (int)$user['birth_day'] : null,
+                'birth_month' => isset($user['birth_month']) ? (int)$user['birth_month'] : null,
+                'birth_year' => isset($user['birth_year']) ? (int)$user['birth_year'] : null,
+                'phone_number' => $user['phone_number'],
+                'address' => $user['address'],
+                'role' => $user['role'],
+                'created_at' => $user['created_at'],
+            ];
             \json_ok(['user' => $out, 'authenticated' => true]);
         } catch (\Throwable $e) {
             \json_error(500, 'Server error');
         }
     }
+
+    /*
+    Register
+    validate ทุกฟิลด์ (ชื่อ username regex เพศ DOB เบอร์ ที่อยู่ อีเมล password ≥ 6)
+    กัน username/email ซ้ำ (ส่ง 409)
+    hash password
+    insert user → role=user
+    login อัตโนมัติ → ส่ง user + authenticated=true
+    */
 
     public static function register(): void
     {
@@ -107,12 +136,23 @@ class AuthController
         }
     }
 
+    /*
+    me (GET)
+    ส่ง user หรือ authenticated=false
+    */
+
     public static function me(): void
     {
         $user = \auth_current_user();
         if (!$user) { \json_ok(['authenticated' => false]); }
         \json_ok(['authenticated' => true, 'user' => $user]);
     }
+
+    /*
+    logout (POST)
+    ลบ session
+    ส่ง authenticated=false
+    */
 
     public static function logout(): void
     {
