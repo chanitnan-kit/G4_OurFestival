@@ -5,99 +5,341 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Directory | Our Festival</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/directory.css">
 </head>
 
-<body>
+<body class="directory-page">
 
 <div id="header-placeholder"></div>
 
-<main class="container py-5 directory-page">
+<main class="container directory-shell">
+  <!-- ===== Hero ===== -->
+  <section class="directory-hero rounded-4 p-4 p-lg-5 mb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <p class="hero-eyebrow mb-2">Festival Marketplace</p>
+        <h1 class="hero-title mb-3">Discover every booth in one place</h1>
+        <p class="hero-subtitle mb-3">เลือกหมวดที่อยากเดิน กดดูร้านเด่น 3 ร้านในหมวดนั้นได้ทันที แล้วสลับหมวดด้วยปุ่ม Next/Previous.</p>
+        <div class="hero-actions">
+          <a href="#categories" class="btn btn-solid">Start browsing</a>
+          <a href="#categoryDetail" class="btn btn-ghost">View featured</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-stat card text-bg-dark border-0 h-100">
+          <div class="card-body d-flex flex-column gap-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="text-uppercase small text-secondary">Open Today</span>
+              <span class="badge bg-warning text-dark">10:00 - 22:00</span>
+            </div>
+            <div class="d-flex gap-3 align-items-center">
+              <div class="stat-bubble">
+                <strong>6</strong>
+                <span>Booths</span>
+              </div>
+              <div class="stat-bubble">
+                <strong>2</strong>
+                <span>Categories</span>
+              </div>
+              <div class="stat-bubble">
+                <strong>4.7</strong>
+                <span>Avg Rating</span>
+              </div>
+            </div>
+            <p class="mb-0 text-secondary">คัดร้านเด็ดพร้อมคูปองในแต่ละหมวด ลองกดที่การ์ดหมวดเพื่อดูรายละเอียดร้านตัวอย่างได้เลย</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== Categories ===== -->
-  <h2 class="page-title text-center mb-4">Categories</h2>
+  <div class="section-block" id="categories">
+    <div class="section-heading">
+      <span class="pill">Curated Picks</span>
+      <h2 class="page-title">Categories</h2>
+    </div>
 
-  <div class="row g-4 justify-content-center category-row">
+    <div class="row g-4 justify-content-center category-row">
 
-  <div class="col-6 col-md-3">
-    <div class="category-card">
-      <img src="resources/imgForDirectory/candy&drinks.jpg" alt="Candy & Drinks" class="category-img">
-      <p class="category-name">Candy & Drinks</p>
+      <div class="col-6 col-md-3">
+        <button class="category-card w-100" type="button" data-category-card data-category="candy">
+          <img src="resources/imgForDirectory/candy&drinks.jpg" alt="Candy & Drinks" class="category-img">
+          <p class="category-name">Candy & Drinks</p>
+        </button>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <button class="category-card w-100" type="button" data-category-card data-category="decor">
+          <img src="resources/imgForDirectory/home-decorations.jpg" alt="Home Decorations" class="category-img">
+          <p class="category-name">Home Decorations</p>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Category detail panel -->
+    <div class="collapse mt-4" id="categoryDetail">
+      <div class="category-detail-card card border-0 text-bg-dark">
+        <div class="card-body p-3 p-lg-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+            <div>
+              <p class="text-uppercase small text-secondary mb-1" id="categoryLabel">Candy & Drinks</p>
+              <h4 class="mb-0">Top picks in this category</h4>
+            </div>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <span class="text-secondary small" id="categoryProgress">1 / 2</span>
+              <div class="btn-group">
+                <button class="btn btn-outline-light btn-sm" id="prevCategory" type="button">Previous Category</button>
+                <button class="btn btn-outline-light btn-sm" id="nextCategory" type="button">Next Category</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 g-lg-4" id="storeList">
+            <!-- Store cards injected here -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="col-6 col-md-3">
-    <div class="category-card">
-      <img src="resources/imgForDirectory/home-decorations.jpg" alt="Home Decorations" class="category-img">
-      <p class="category-name">Home Decorations</p>
-    </div>
-  </div>
-
-</div>
-
-<hr class="divider my-5">
-
-  <!-- ===== Booth Section ===== -->
-  <h3 class="page-title text-center mb-4">Booths</h3>
-
-  <div class="row g-4">
-
-  <div class="col-12 col-md-6 col-lg-3">
-    <a href="booths/booth1.html" class="booth-link">
-      <div class="booth-card">
-        <img src="resources/imgForDirectory/booth1.jpg" alt="Booth 1" class="booth-img">
-        <div class="booth-info">
-          <h5>Booth 1</h5>
-          <p>Candy & Drinks</p>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-12 col-md-6 col-lg-3">
-    <a href="booths/booth2.html" class="booth-link">
-      <div class="booth-card">
-        <img src="resources/imgForDirectory/booth2.jpg" alt="Booth 2" class="booth-img">
-        <div class="booth-info">
-          <h5>Booth 2</h5>
-          <p>Candy & Drinks</p>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-12 col-md-6 col-lg-3">
-    <a href="booths/booth3.html" class="booth-link">
-      <div class="booth-card">
-        <img src="resources/imgForDirectory/booth3.jpg" alt="Booth 3" class="booth-img">
-        <div class="booth-info">
-          <h5>Booth 3</h5>
-          <p>Home Decorations</p>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-12 col-md-6 col-lg-3">
-    <a href="booths/booth4.html" class="booth-link">
-      <div class="booth-card">
-        <img src="resources/imgForDirectory/booth4.jpg" alt="Booth 4" class="booth-img">
-        <div class="booth-info">
-          <h5>Booth 4</h5>
-          <p>Home Decorations</p>
-        </div>
-      </div>
-    </a>
-  </div>
-
-</div>
 
 </main>
 
 <div id="footer-placeholder"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const storeData = {
+      candy: {
+        label: 'Candy & Drinks',
+        stores: [
+          {
+            name: 'Sugar Rush Bar',
+            description: 'บาร์ขนมหวานพร้อมโกโก้ร้อน เมนูประจำเทศกาล และมุมถ่ายรูปธีมคริสต์มาส',
+            best: 'Peppermint fudge bites',
+            hours: '10:00 - 22:00',
+            location: 'Lane C2',
+            special: 'Free marshmallow topping',
+            perks: ['คูปองซื้อ 3 แถม 1', 'ตัวอย่างชิมฟรี', 'มุมถ่ายรูปไฟคริสต์มาส'],
+            rating: '4.8',
+            tag: 'Signature',
+            link: 'booths/booth1.html',
+            image: 'resources/imgForDirectory/booth1.jpg'
+          },
+          {
+            name: 'Frostbite Café',
+            description: 'เมนูโซดาสีสันและ mocktail กลิ่นซินนามอน เติมฟองครีมวานิลลาได้',
+            best: 'Cranberry sparkling soda',
+            hours: '10:00 - 22:00',
+            location: 'Lane C3',
+            special: 'เติมฟองครีมฟรี 1 ครั้ง',
+            perks: ['บัตรสะสมแต้ม 5 แก้วรับฟรี 1', 'แก้วลิมิเต็ดลายกวางเรนเดียร์'],
+            rating: '4.6',
+            tag: 'New',
+            link: 'booths/booth2.html',
+            image: 'resources/imgForDirectory/booth2.jpg'
+          },
+          {
+            name: 'Ginger & Glow',
+            description: 'ช็อคโกแลตร้อนสูตรเข้ม + ขนมปังขิงอบสด เสิร์ฟพร้อมคุกกี้รูปหิมะ',
+            best: 'Gingerbread latte',
+            hours: '10:00 - 21:30',
+            location: 'Lane B1',
+            special: 'อัพไซส์ฟรีช่วง 17:00 - 19:00',
+            perks: ['โต๊ะอุ่นเทียน', 'คุกกี้ complimentary 1 ชิ้น'],
+            rating: '4.9',
+            tag: 'Staff pick',
+            link: 'booths/booth1.html',
+            image: 'resources/imgForDirectory/candy&drinks.jpg'
+          }
+        ]
+      },
+      decor: {
+        label: 'Home Decorations',
+        stores: [
+          {
+            name: 'North Star Decor',
+            description: 'ของตกแต่งคริสต์มาสโทนทองน้ำเงิน ไฟ LED ประหยัดพลังงาน และเซ็ตต้นคริสต์มาส',
+            best: 'Aurora light string',
+            hours: '10:00 - 22:00',
+            location: 'Hall D — Booth 4',
+            special: 'ลด 10% เมื่อซื้อครบ 1,500',
+            perks: ['มีบริการจัดส่งภายในวัน', 'ทดลองเปิดไฟก่อนซื้อ'],
+            rating: '4.7',
+            tag: 'Bestseller',
+            link: 'booths/booth3.html',
+            image: 'resources/imgForDirectory/booth3.jpg'
+          },
+          {
+            name: 'Yuletide Atelier',
+            description: 'งานแฮนด์เมดพวงมาลัย มงกุฎดอกไม้ และเทียนหอมกลิ่นสน แพ็กเป็นของขวัญได้',
+            best: 'Winter wreath duo',
+            hours: '10:00 - 21:00',
+            location: 'Hall D — Booth 7',
+            special: 'ฟรีป้ายชื่อริบบอน',
+            perks: ['มีแพ็กเกจของขวัญ', 'สอนมัดพวงมาลัย 5 นาที'],
+            rating: '4.8',
+            tag: 'Crafted',
+            link: 'booths/booth4.html',
+            image: 'resources/imgForDirectory/booth4.jpg'
+          },
+          {
+            name: 'Pine & Patch',
+            description: 'ผ้าห่มลายทาร์ทัน หมอนอิง และ diffuser กลิ่นไม้ซีดาร์ สไตล์อบอุ่น',
+            best: 'Cedarwood diffuser set',
+            hours: '10:00 - 22:00',
+            location: 'Hall C — Booth 2',
+            special: 'ลดเพิ่ม 5% เมื่อแสดงบัตรนักศึกษา',
+            perks: ['ลองกลิ่นได้', 'ผ่อน 0% กับสินค้าชุดใหญ่'],
+            rating: '4.5',
+            tag: 'Cozy',
+            link: 'booths/booth3.html',
+            image: 'resources/imgForDirectory/home-decorations.jpg'
+          }
+        ]
+      }
+    };
+
+    const categoryLabel = document.getElementById('categoryLabel');
+    const categoryProgress = document.getElementById('categoryProgress');
+    const storeList = document.getElementById('storeList');
+    const prevCategoryBtn = document.getElementById('prevCategory');
+    const nextCategoryBtn = document.getElementById('nextCategory');
+    const collapseEl = document.getElementById('categoryDetail');
+
+    const cards = Array.from(document.querySelectorAll('[data-category-card]'));
+    const collapseInstance = collapseEl ? new bootstrap.Collapse(collapseEl, { toggle: false }) : null;
+
+    const categoryKeys = Object.keys(storeData);
+    let activeCategory = categoryKeys[0] || '';
+
+    const setActiveCard = (categoryKey) => {
+      cards.forEach((card) => {
+        card.classList.toggle('active', card.dataset.category === categoryKey);
+        if (card.dataset.category === categoryKey) {
+          card.setAttribute('aria-expanded', 'true');
+        } else {
+          card.setAttribute('aria-expanded', 'false');
+        }
+      });
+    };
+
+    const renderCategory = () => {
+      const category = storeData[activeCategory];
+      if (!category) return;
+      const idx = categoryKeys.indexOf(activeCategory);
+      categoryLabel.textContent = category.label;
+      categoryProgress.textContent = `${idx + 1} / ${categoryKeys.length}`;
+
+      storeList.innerHTML = '';
+      category.stores.forEach((store) => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-lg-4';
+
+        col.innerHTML = `
+          <div class="store-card h-100">
+            <a class="store-img-wrap d-block" href="${store.link || '#'}" target="_blank" rel="noopener">
+              <img src="${store.image}" alt="${store.name}" class="store-img">
+              <span class="badge bg-warning text-dark detail-badge">${store.tag || 'Featured'}</span>
+            </a>
+            <div class="store-body">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                <div>
+                  <p class="text-uppercase small text-secondary mb-1">${category.label}</p>
+                  <h5 class="mb-1">${store.name}</h5>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-success-subtle text-success-emphasis">Open</span>
+                    <span class="text-warning small">★ ${store.rating}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-secondary small mb-3">${store.description}</p>
+              <div class="detail-meta mb-3">
+                <div class="meta-row">
+                  <div>
+                    <span class="label">Best Seller</span>
+                    <p class="value mb-0">${store.best}</p>
+                  </div>
+                  <div>
+                    <span class="label">Hours</span>
+                    <p class="value mb-0">${store.hours}</p>
+                  </div>
+                </div>
+                <div class="meta-row">
+                  <div>
+                    <span class="label">Location</span>
+                    <p class="value mb-0">${store.location}</p>
+                  </div>
+                </div>
+                <div class="meta-row">
+                  <div>
+                    <span class="label">Special</span>
+                    <p class="value mb-0">${store.special}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+                <span class="text-secondary small">Perks:</span>
+                <div class="d-flex flex-wrap gap-2">
+                  ${(store.perks || []).map((perk) => `<span class="badge rounded-pill text-bg-secondary">${perk}</span>`).join('')}
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center gap-2 mt-auto store-footer">
+                <a href="${store.link || '#'}" class="btn btn-danger btn-sm rounded-pill" target="_blank" rel="noopener">Visit booth</a>
+                <span class="text-secondary small">Open: ${store.hours}</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        storeList.appendChild(col);
+      });
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const key = card.dataset.category;
+        if (!storeData[key]) return;
+        activeCategory = key;
+        setActiveCard(key);
+        renderCategory();
+        if (collapseInstance) {
+          collapseInstance.show();
+        }
+      });
+    });
+
+    const switchCategory = (direction) => {
+      const currentIndex = categoryKeys.indexOf(activeCategory);
+      const nextIndex = (currentIndex + direction + categoryKeys.length) % categoryKeys.length;
+      activeCategory = categoryKeys[nextIndex];
+      setActiveCard(activeCategory);
+      renderCategory();
+      if (collapseInstance) {
+        collapseInstance.show();
+      }
+    };
+
+    if (prevCategoryBtn) {
+      prevCategoryBtn.addEventListener('click', () => switchCategory(-1));
+    }
+
+    if (nextCategoryBtn) {
+      nextCategoryBtn.addEventListener('click', () => switchCategory(1));
+    }
+
+    // initial state
+    setActiveCard(activeCategory);
+    renderCategory();
+    if (collapseInstance) {
+      collapseInstance.show();
+    }
+  });
+</script>
 <script src="js/layout-loader.js"></script>
 
 </body>

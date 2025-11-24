@@ -34,6 +34,34 @@
   z-index: 1;
 }
 
+.header-grid{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "logo center actions";
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-logo{
+  grid-area: logo;
+  justify-self: start;
+}
+
+.header-center{
+  grid-area: center;
+  display: flex;
+  justify-content: center;
+}
+
+.header-directory-btn{
+  min-width: 210px;
+}
+
+.header-actions{
+  grid-area: actions;
+  justify-self: end;
+}
+
 #fireworks-placeholder {
   position: fixed;
   inset: 0;
@@ -236,6 +264,22 @@
 }
 
 @media (max-width: 768px){
+  .header-grid{
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo actions"
+      "center center";
+    gap: 0.75rem;
+  }
+
+  .header-center{
+    width: 100%;
+  }
+
+  .header-directory-btn{
+    width: 100%;
+  }
+
   .header-inline{
     gap: 0.35rem;
   }
