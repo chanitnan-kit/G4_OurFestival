@@ -1,25 +1,23 @@
 <header class="festival-header text-white">
-  <div class="container py-3">
-    <div class="header-inline d-flex align-items-center flex-nowrap gap-3">
+  <nav class="navbar navbar-dark py-2">
+    <div class="container d-flex align-items-center gap-3">
+      <!-- Logo left -->
+      <a class="navbar-brand d-flex flex-column gap-1" href="index.html">
+        <span class="eyebrow text-uppercase small text-warning" style="letter-spacing: 0.15em; font-size: 0.6rem;">CS100
+          Festival 2025</span>
+        <h1 class="mb-0 fw-bold fs-5" style="letter-spacing: 0.04em;">CHRISTMAS EVE</h1>
+      </a>
 
-      <div class="header-brand text-center text-md-start flex-shrink-0">
-        <a href="index.html" class="text-decoration-none text-white d-inline-flex flex-column gap-1">
-          <span class="eyebrow text-uppercase small">CS100 Festival 2025</span>
-          <h1 class="mb-0 fw-bold">CHRISTMAS EVE</h1>
-        </a>
-      </div>
-
-      <nav class="header-nav festival-nav d-flex justify-content-center text-uppercase small fw-semibold flex-grow-1">
-        <a href="directory.html" class="nav-link">Directory</a>
-      </nav>
-
-      <div class="header-cta d-flex align-items-center justify-content-end gap-2 flex-shrink-0">
-        <a href="#" class="cart-icon-link position-relative" aria-label="View cart">
+      <!-- Right icons -->
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <a href="directory.html" class="cart-icon-link position-relative" aria-label="View cart">
           <img src="resources/CartIcon.png" alt="Cart" class="cart-icon">
           <span class="cart-count badge rounded-pill">0</span>
         </a>
+
         <div class="dropdown profile-dropdown">
-          <a href="#" class="profile-avatar-link dropdown-toggle" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="profile-avatar-link dropdown-toggle" id="profileDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
             <img src="resources/UserIcon.png" alt="Profile" class="profile-avatar">
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
@@ -30,23 +28,36 @@
                 <span class="profile-summary-username" data-profile-name>Guest</span>
               </div>
             </li>
-            <li><hr class="dropdown-divider my-2"></li>
-            <li><a class="dropdown-item" href="#" data-requires-auth="true" data-action="profile">My Profile</a></li>
-            <li><a class="dropdown-item" href="#" data-requires-auth="true" data-action="history">Purchase History</a></li>
-            <li><a class="dropdown-item" href="feedback.html" data-requires-auth="true" data-action="feedback">Feedback</a></li>
-            <li class="d-none" data-auth-role="admin"><hr class="dropdown-divider my-2"></li>
-            <li class="d-none" data-auth-role="admin"><h6 class="dropdown-header">Admin</h6></li>
-            <li class="d-none" data-auth-role="admin"><a class="dropdown-item" href="registration-summary.html">Registration Summary</a></li>
-            <li class="d-none" data-auth-role="admin"><a class="dropdown-item" href="feedback-summary.html">Feedback Summary</a></li>
-            <li><hr class="dropdown-divider my-2"></li>
+            <li>
+              <hr class="dropdown-divider my-2">
+            </li>
+            <li><a class="dropdown-item" href="myprofile.html" data-requires-auth="true" data-action="profile">My
+                Profile</a></li>
+            <li><a class="dropdown-item" href="myfavoriteitem.html" data-requires-auth="true"
+                data-action="favorite">Favorite Items</a></li>
+            <li><a class="dropdown-item" href="feedback.html" data-requires-auth="true"
+                data-action="feedback">Feedback</a></li>
+            <li class="d-none" data-auth-role="admin">
+              <hr class="dropdown-divider my-2">
+            </li>
+            <li class="d-none" data-auth-role="admin">
+              <h6 class="dropdown-header">Admin</h6>
+            </li>
+            <li class="d-none" data-auth-role="admin"><a class="dropdown-item"
+                href="registration-summary.html">Registration Summary</a></li>
+            <li class="d-none" data-auth-role="admin"><a class="dropdown-item" href="feedback-summary.html">Feedback
+                Summary</a></li>
+            <li>
+              <hr class="dropdown-divider my-2">
+            </li>
             <li data-auth-show="logged-out"><a class="dropdown-item" href="login.html">Login</a></li>
             <li class="d-none" data-auth-show="logged-in">
-              <button type="button" class="dropdown-item text-danger" data-action="logout" data-requires-auth="true">Sign out</button>
+              <button type="button" class="dropdown-item text-danger" data-action="logout"
+                data-requires-auth="true">Sign out</button>
             </li>
           </ul>
         </div>
       </div>
-
     </div>
-  </div>
+  </nav>
 </header>

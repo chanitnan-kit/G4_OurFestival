@@ -3,6 +3,12 @@ namespace App\Controllers;
 
 class SummaryController
 {
+    /*registrations
+    ดึง users (ยกเว้น admin) ทั้งหมด
+    ส่งข้อมูล: id/name/username/email/gender/DOB/เบอร์/ที่อยู่/created_at
+    total
+    */
+    
     public static function registrations(): void
     {
         \auth_require_role('admin');
@@ -15,6 +21,13 @@ class SummaryController
             \json_error(500, 'Server error');
         }
     }
+
+    /*feedback summary
+    นับจำนวน rating 1–5
+    คำนวณ average
+    ดึง recent 20 comment
+    ส่ง total/average/counts/recent
+    */
 
     public static function feedback(): void
     {

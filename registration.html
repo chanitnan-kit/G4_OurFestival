@@ -1,72 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Registration - Our Festival</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Kanit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
-<body>
-    <div id="fireworks-placeholder"></div>
+
+<body class="auth-page">
     <div id="header-placeholder"></div>
 
-    <main class="container my-5">
-        <fieldset>
-            <form id="registration-form">
-                <h1>Register</h1>
-                <label for="name">Full Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
+    <main>
+        <div class="auth-container">
+            <div class="auth-header">
+                <span class="auth-pill">
+                    <span>🎅</span>
+                    Join Our Festival
+                </span>
+                <h1 class="auth-title">Register</h1>
+                <p class="auth-subtitle">Create your account to get started</p>
+            </div>
 
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" required><br><br>
+            <form id="registration-form" class="auth-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="name" name="name" placeholder="Enter your full name"
+                        required />
+                </div>
 
-                <label>Gender:</label><br>
-                <label><input type="radio" name="gender" value="Male" required> Male</label><br>
-                <label><input type="radio" name="gender" value="Female"> Female</label><br>
-                <label><input type="radio" name="gender" value="Other"> Other</label><br>
-                <label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label><br><br>
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-input" id="username" name="username" placeholder="Choose a username"
+                        required />
+                </div>
 
-                <div class="date">
-                    <div class="day">
-                        <label for="dob-day">Day</label>
-                        <input type="text" id="dob-day" maxlength="2" placeholder="dd" required>
-                    </div>
-                    <div class="month">
-                        <label for="dob-month">Month</label>
-                        <input type="text" id="dob-month" maxlength="2" placeholder="mm" required>
-                    </div>
-                    <div class="years">
-                        <label for="dob-year">Year</label>
-                        <input type="text" id="dob-year" maxlength="4" placeholder="yyyy" required>
+                <div class="form-group">
+                    <label class="form-label">Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Male" required>
+                            <span>Male</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Female">
+                            <span>Female</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Other">
+                            <span>Other</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Prefer not to say">
+                            <span>Prefer not to say</span>
+                        </label>
                     </div>
                 </div>
 
-                <label for="phone_num">Phone Number:</label><br>
-                <input type="text" id="phone_num" name="phone_num" required><br><br>
+                <div class="form-group">
+                    <label class="form-label">Date of Birth</label>
+                    <div class="date-group">
+                        <div class="form-group">
+                            <label for="dob-day" class="form-label">Day</label>
+                            <input type="text" class="form-input" id="dob-day" maxlength="2" placeholder="DD"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="dob-month" class="form-label">Month</label>
+                            <input type="text" class="form-input" id="dob-month" maxlength="2" placeholder="MM"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="dob-year" class="form-label">Year</label>
+                            <input type="text" class="form-input" id="dob-year" maxlength="4" placeholder="YYYY"
+                                required />
+                        </div>
+                    </div>
+                </div>
 
-                <label for="address">Address:</label><br>
-                <textarea id="address" name="address" rows="3" required></textarea><br><br>
+                <div class="form-group">
+                    <label for="phone_num" class="form-label">Phone Number</label>
+                    <input type="text" class="form-input" id="phone_num" name="phone_num"
+                        placeholder="Enter your phone number" required />
+                </div>
 
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
+                <div class="form-group">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-textarea" id="address" name="address" rows="3"
+                        placeholder="Enter your address" required></textarea>
+                </div>
 
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" required><br><br>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-input" id="email" name="email"
+                        placeholder="Enter your email address" required />
+                </div>
 
-                <label for="confirm-password">Confirm Password:</label><br>
-                <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-input" id="password" name="password"
+                        placeholder="Create a password" required />
+                </div>
 
-                
+                <div class="form-group">
+                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" id="confirm-password" name="confirm-password"
+                        placeholder="Confirm your password" required />
+                </div>
 
-                <input type="submit" value="Register">
+                <button type="submit" class="btn-submit">Register</button>
             </form>
-        </fieldset>
+
+            <div class="auth-footer">
+                <p class="auth-footer-text">
+                    Already have an account?
+                    <a href="login.html" class="auth-link">Login here</a>
+                </p>
+            </div>
+        </div>
     </main>
 
     <div id="footer-placeholder"></div>
     <script src="js/layout-loader.js"></script>
     <script src="js/registration.js"></script>
 </body>
+
 </html>

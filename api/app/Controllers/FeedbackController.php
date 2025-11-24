@@ -5,6 +5,14 @@ use PDO;
 
 class FeedbackController
 {
+    /*
+    create (POST)
+    rating = 1–5
+    comment ไม่ว่าง และ ≤2000 ตัว
+    ถ้าล็อกอิน → บันทึก user_id
+    insert feedback → ส่ง id/rating/comment/user_id/created_at
+    */
+
     public static function create(): void
     {
         $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
@@ -42,6 +50,12 @@ class FeedbackController
             \json_error(500, 'Server error');
         }
     }
+    
+    /*list (admin only)
+    รับ limit/offset
+    join users เพื่อได้ชื่อ
+    ส่งรายการ + total count
+    */
 
     public static function list(): void
     {

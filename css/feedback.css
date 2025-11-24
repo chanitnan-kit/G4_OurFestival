@@ -1,33 +1,139 @@
-/* Feedback page styles extracted from feedback.html */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Kanit:wght@300;400;600;700&display=swap');
 
+/* Christmas/Holiday Theme for Feedback Page */
+.feedback-page {
+  --midnight: #050505;
+  --night: #0a0a12;
+  --gold: #f1c40f;
+  --gold-dim: #d4ac0d;
+  --warm-light: #fffacd;
+  --accent-red: #c0392b;
+  --glass-dark: rgba(0, 0, 0, 0.6);
+  --glass-border: rgba(241, 196, 15, 0.3);
+
+  background: linear-gradient(180deg, #050505 0%, #0a0a12 40%, #1a1a2e 100%);
+  color: var(--warm-light);
+  font-family: 'Kanit', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Twinkling Stars Background */
+.feedback-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
+    radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
+    radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  opacity: 0.8;
+  z-index: 0;
+  animation: twinkle 10s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Main Container */
+.feedback-container {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Page Heading */
 .heading h1 {
-  color: rgb(248, 211, 4);
-  display: flex;
-  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
+  animation: fadeInDown 0.6s ease-out;
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Feedback Form Container */
 .feedbackform {
-  background-color: rgb(245, 245, 245);
-  min-height: 70vh;
-  border-radius: 2rem;
-  margin-top: 1rem;
-  padding: 2.5rem 3rem;
-  border: 2px solid #E57373;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
-                0 0 20px rgba(255, 215, 0, 0.3);
+  background: var(--glass-dark);
+  border: 2px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px 35px;
+  box-shadow:
+    0 0 40px rgba(241, 196, 15, 0.15),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
+  overflow: visible;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Labels */
 .form-label {
-  font-size: 1.25rem;
+  color: var(--warm-light);
   font-weight: 600;
-  color: black;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 
+.form-label strong {
+  color: var(--gold);
+}
+
+.alt-text {
+  color: #ccc;
+  font-size: 0.95rem;
+  font-weight: 300;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Emoji Rating Box */
 .emoji-rating-box {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 12px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .emoji-rating-box input[type="radio"] {
@@ -35,148 +141,247 @@
 }
 
 .rating-box {
-  width: 100px;
-  padding: 1rem 0.5rem;
+  width: 90px;
+  padding: 15px 10px;
   text-align: center;
-  background-color: #ffffff;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .rating-box i {
   font-size: 2.5rem;
-  color: #aaaaaa;
-  transition: color 0.2s ease;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
 }
 
 .rating-box span {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #888888;
-  margin-top: 0.25rem;
-  transition: color 0.2s ease;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 8px;
+  transition: all 0.3s ease;
 }
 
 .rating-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(241, 196, 15, 0.4);
 }
 
-.emoji-rating-box input[type="radio"]:checked + .rating-box {
-  border-color: #4a4a9c;
-  background-color: #f7f7ff;
-  box-shadow: 0 4px 15px rgba(74, 74, 156, 0.2);
+.emoji-rating-box input[type="radio"]:checked+.rating-box {
+  border-color: var(--gold);
+  background: rgba(241, 196, 15, 0.15);
+  box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
 }
 
-.emoji-rating-box input[type="radio"]:checked + .rating-box i { color: #4a4a9c; }
-.emoji-rating-box input[type="radio"]:checked + .rating-box span { color: #333333; font-weight: 600; }
+.emoji-rating-box input[type="radio"]:checked+.rating-box i {
+  color: var(--gold);
+}
 
-.modal-body { color: #212529; }
+.emoji-rating-box input[type="radio"]:checked+.rating-box span {
+  color: var(--warm-light);
+  font-weight: 600;
+}
 
+/* Form Select */
 #interest.form-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--warm-light);
   font-size: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  border: 2px solid #e0e0e0;
-  transition: all 0.2s ease;
+  font-family: 'Kanit', sans-serif;
+  transition: all 0.3s ease;
 }
 
 #interest.form-select:focus {
-  border-color: #4a4a9c;
-  box-shadow: 0 0 0 0.15rem rgba(74, 74, 156, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.1),
+    0 0 20px rgba(241, 196, 15, 0.2);
+  outline: none;
 }
 
+#interest.form-select option {
+  background: #1a1a2e;
+  color: var(--warm-light);
+}
 
+/* Textarea */
+#feedbackText.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--warm-light);
+  font-size: 1rem;
+  font-family: 'Kanit', sans-serif;
+  transition: all 0.3s ease;
+  resize: vertical;
+  min-height: 120px;
+}
+
+#feedbackText.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#feedbackText.form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.1),
+    0 0 20px rgba(241, 196, 15, 0.2);
+  outline: none;
+}
+
+/* Checkbox */
 .form-check-input {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
 
 .form-check-input:checked {
-  background-color: #4a4a9c;
-  border-color: #4a4a9c;
+  background-color: var(--gold);
+  border-color: var(--gold);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.2);
 }
 
 .form-check-label {
-  margin-left: 0.35rem;
+  margin-left: 10px;
   font-size: 1rem;
   cursor: pointer;
-  color: #3c3f42;
+  color: #ccc;
 }
 
-
-.invalid-feedback {
-  font-size: 0.9rem;
-  padding-top: 0.25rem;
-}
-
-
-.form-check.my-3 {
-  margin-top: 1.5rem !important;
-}
-
-* {
-    font-family: "Nunito", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: auto;
-    font-style: normal;
-}
-
-.alt-text {
-  color: black;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 10px;
-}
-
-strong {
-  color: rgb(221, 188, 0);
-}
-
+/* Submit Button */
 .btn-primary {
-    background-color: #C62828;
-    border-color: #C62828;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #FF5252;
-    border-color: #FF5252;
-    transform: translateY(-2px);
+  background: linear-gradient(135deg, #ffd700 0%, var(--gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(241, 196, 15, 0.5);
 }
 
-body {
-  background-color: #0A1931;
-  background-image: url();
+.btn-primary:active {
+  transform: translateY(0);
 }
 
-.feedback-container {
-  position: relative;
-  z-index: 1; /* keep form above background effects while header stays clickable */
-}
-
-.feedbackform {
-    position: relative;
-    overflow: hidden;
-}
-
+/* Snowman Decoration */
 .snowman-decoration {
-    position: absolute;
-    right: -20px;
-    bottom: -30px;
-    height: 100px;
-    z-index: 1;
-    rotate: 2deg;
-    
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  height: 120px;
+  z-index: 1;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
 .feedbackform .text-center {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
+}
+
+/* Alert */
+.alert {
+  border-radius: 12px;
+  border: none;
+  background: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+}
+
+/* Invalid Feedback */
+.invalid-feedback {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* Modal Styling */
+.modal-content {
+  background: var(--glass-dark);
+  border: 2px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px 18px 0 0;
+}
+
+.modal-body {
+  color: var(--warm-light);
+  font-size: 1.1rem;
+  padding: 30px;
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 18px 18px;
+}
+
+.modal-footer .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--warm-light);
+}
+
+.modal-footer .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .heading h1 {
+    font-size: 2rem;
+  }
+
+  .feedbackform {
+    padding: 30px 20px;
+  }
+
+  .emoji-rating-box {
+    gap: 8px;
+  }
+
+  .rating-box {
+    width: 75px;
+    padding: 12px 8px;
+  }
+
+  .rating-box i {
+    font-size: 2rem;
+  }
+
+  .snowman-decoration {
+    height: 80px;
+    right: -5px;
+    bottom: -10px;
+  }
 }
