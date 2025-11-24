@@ -3,10 +3,43 @@ html {
   height: 100%;
 }
 
+:root {
+  --cursor-normal-cur: url("../Cursors/Normal.cur");
+  --cursor-normal-ani: url("../Cursors/Normal.ani");
+  --cursor-link-cur: url("../Cursors/Link.cur");
+  --cursor-link-ani: url("../Cursors/Link.ani");
+  --cursor-text-cur: url("../Cursors/Text.cur");
+  --cursor-text-ani: url("../Cursors/Text.ani");
+}
+
 body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  cursor: var(--cursor-normal-cur), var(--cursor-normal-ani), auto;
+}
+
+a,
+button:not(:disabled),
+.btn:not(:disabled),
+[role="button"]:not(:disabled),
+[onclick],
+input[type="button"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="reset"]:not(:disabled) {
+  cursor: var(--cursor-link-cur), var(--cursor-link-ani), pointer !important;
+}
+
+input,
+textarea,
+select,
+option {
+  cursor: var(--cursor-text-cur), var(--cursor-text-ani), text !important;
+}
+
+:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed !important;
 }
 
 body>main,
