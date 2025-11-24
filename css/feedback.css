@@ -156,6 +156,11 @@ body {
   background-image: url();
 }
 
+.feedback-container {
+  position: relative;
+  z-index: 1; /* keep form above background effects while header stays clickable */
+}
+
 .feedbackform {
     position: relative;
     overflow: hidden;

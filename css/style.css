@@ -1,5 +1,7 @@
 .festival-header{
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1200;
   background: linear-gradient(120deg, #2b0f0f 0%, #6b1b1b 40%, #14532d 65%, #3a80d8 100%);
   box-shadow: 0 8px 20px rgba(0,0,0,0.45);
   border-bottom: 1px solid rgba(255,255,255,0.18);
@@ -30,6 +32,13 @@
 .festival-header .container{
   position: relative;
   z-index: 1;
+}
+
+#fireworks-placeholder {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .header-inline{
