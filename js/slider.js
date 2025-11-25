@@ -218,8 +218,9 @@ class VerticalCubeSlider {
 
         this.setFaceImage(nextFaceNumber, this.images[index]);
 
-        cubes.forEach(cube => {
+        cubes.forEach((cube, i) => {
             cube.className = 'slice-cube';
+            cube.style.transitionDelay = `${i * 0.05}s`; // Staggered delay for domino effect
             void cube.offsetWidth;
             cube.classList.add(`rotate-${nextFace}`);
         });
@@ -241,7 +242,7 @@ class VerticalCubeSlider {
             }
 
             this.isAnimating = false;
-        }, 950);
+        }, 1300); // Increased timeout to account for delays (800ms transition + ~500ms total delay)
     }
 
     updateDots() {
