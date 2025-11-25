@@ -52,13 +52,21 @@ body>.directory-shell {
   flex-shrink: 0;
 }
 
-.festival-header {
+#header-placeholder {
   position: sticky;
   top: 0;
-  z-index: 1200;
-  background: linear-gradient(120deg, #2b0f0f 0%, #6b1b1b 40%, #14532d 65%, #3a80d8 100%);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 9999;
+  /* High z-index to prevent overlap */
+  width: 100%;
+}
+
+.festival-header {
+  /* position: sticky;  <-- Removed to avoid double sticky */
+  /* top: 0; */
+  /* z-index: 1200; */
+  background: linear-gradient(135deg, rgba(5, 5, 8, 0.96) 0%, rgba(10, 10, 18, 0.95) 45%, rgba(21, 26, 46, 0.94) 100%);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid rgba(241, 196, 15, 0.22);
   overflow: hidden;
 }
 
@@ -71,16 +79,18 @@ body>.directory-shell {
 }
 
 .festival-header::before {
-  background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.35), transparent 45%);
+  background:
+    radial-gradient(circle at 18% 22%, rgba(241, 196, 15, 0.16), transparent 42%),
+    radial-gradient(circle at 82% 0%, rgba(192, 57, 43, 0.18), transparent 48%);
 }
 
 .festival-header::after {
   background-image:
-    radial-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
-    radial-gradient(rgba(255, 255, 255, 0.135) 1px, transparent 1px);
+    radial-gradient(rgba(241, 196, 15, 0.18) 1px, transparent 1px),
+    radial-gradient(rgba(241, 196, 15, 0.1) 1px, transparent 1px);
   background-size: 120px 120px, 80px 80px;
   background-position: 20px 20px, 60px 0;
-  opacity: 0.6;
+  opacity: 0.45;
 }
 
 .festival-header .container {
